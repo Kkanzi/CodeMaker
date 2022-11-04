@@ -43,7 +43,7 @@ namespace KJHCore
             set => this._mssqlConStr = value;
         }
 
-        public DBKind DSDBKind
+        public DBKind DBKind
         {
             get => this._dsdbkind;
             set => this._dsdbkind = value;
@@ -120,7 +120,7 @@ namespace KJHCore
             this.OracleConStr = string.Empty;
             this.MssqlConStr = string.Empty;
             this.Table_Catalog = string.Empty;
-            this.DSDBKind = DBKind.ORACLE;
+            this.DBKind = DBKind.ORACLE;
             this.Lang = LANG.KOR;
             this.DSResult = new DataSet();
             this.ErrorMessage = string.Empty;
@@ -130,12 +130,12 @@ namespace KJHCore
         public CGCOMMON(
           string OracleConnectionString,
           string MsqlConnectionString,
-          DBKind dsDBkind,
+          DBKind DBkind,
           LANG inLang)
         {
             this.OracleConStr = OracleConnectionString;
             this.MssqlConStr = MsqlConnectionString;
-            this.DSDBKind = dsDBkind;
+            this.DBKind = DBkind;
             this.Lang = inLang;
             this.DSResult = new DataSet();
             this.ErrorMessage = string.Empty;

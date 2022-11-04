@@ -17,6 +17,8 @@ namespace CodeMaker
 {
     public partial class frmMain : MaterialForm
     {
+        CGCOMMON gc = null;
+
         public frmMain()
         {
             InitializeComponent();
@@ -35,7 +37,7 @@ namespace CodeMaker
 
             clsLog.filePath = "";
         }
-
+        #region 이벤트
         private void frmMain_Load(object sender, EventArgs e)
         {
             chkALL_CheckedChanged(null, null);
@@ -100,6 +102,73 @@ namespace CodeMaker
             {
                 clsLog.ErrLog(ex.Message);
             }
+        }
+
+        private void btnCONNECT_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtIP.Text.Trim()))
+                {
+                    MaterialMessageBox.Show("IP를 입력해주시기 바랍니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(txtPORT.Text.Trim()))
+                {
+                    MaterialMessageBox.Show("PORT를 입력해주시기 바랍니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(txtID.Text.Trim()))
+                {
+                    MaterialMessageBox.Show("ID를 입력해주시기 바랍니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(txtPW.Text.Trim()))
+                {
+                    MaterialMessageBox.Show("Password를 입력해주시기 바랍니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(txtDB.Text.Trim()))
+                {
+                    MaterialMessageBox.Show("DB Name을 입력해주시기 바랍니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                string MsSqlConn = $@"data source = {txtIP.Text.Trim()},{txtPORT.Text.Trim()} ; initial Catalog = {txtDB.Text.Trim()} ; user id = {txtID.Text.Trim()} ;PASSWORD = {txtPW.Text.Trim()}";
+
+                gc = new CGCOMMON(string.Empty, MsSqlConn, DBKind.MSSQL, LANG.KOR);
+
+                TableSearch();
+
+            }
+            catch (Exception ex)
+            {
+                clsLog.ErrLog(ex.Message);
+            }
+        }
+
+        #endregion
+
+
+        #region 메서드
+        private void TableSearch()
+        {
+            if (gc == null)
+            {
+                MaterialMessageBox.Show("먼저 DB Connect를 해주시기바랍니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+        }
+
+        #endregion
+
+        private void btnTableSearch_Click(object sender, EventArgs e)
+        {
+            TableSearch();
         }
     }
 }
