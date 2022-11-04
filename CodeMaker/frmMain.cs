@@ -38,7 +38,7 @@ namespace CodeMaker
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            
+            chkALL_CheckedChanged(null, null);
         }
 
 
@@ -55,6 +55,45 @@ namespace CodeMaker
                 if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리             
                 {
                     e.Handled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                clsLog.ErrLog(ex.Message);
+            }
+        }
+
+        private void chkALL_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chkALL.Checked)
+                {
+                    chkSel_Q.Checked = true;
+                    chkIns_Q.Checked = true;
+                    chkUpd_Q.Checked = true;
+                    chkDel_Q.Checked = true;
+                    chkMer_Q.Checked = true;
+
+                    chkSel_P.Checked = true;
+                    chkIns_P.Checked = true;
+                    chkUpd_P.Checked = true;
+                    chkDel_P.Checked = true;
+                    chkMer_P.Checked = true;
+                }
+                else
+                {
+                    chkSel_Q.Checked = false;
+                    chkIns_Q.Checked = false;
+                    chkUpd_Q.Checked = false;
+                    chkDel_Q.Checked = false;
+                    chkMer_Q.Checked = false;
+                                       
+                    chkSel_P.Checked = false;
+                    chkIns_P.Checked = false;
+                    chkUpd_P.Checked = false;
+                    chkDel_P.Checked = false;
+                    chkMer_P.Checked = false;
                 }
             }
             catch (Exception ex)
