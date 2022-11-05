@@ -34,11 +34,12 @@
             this.tabTABLE = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gvTABLE = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnTableSearch = new MaterialSkin.Controls.MaterialButton();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTB_DESC = new System.Windows.Forms.TextBox();
             this.Desc = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtTB_NAME = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabSQL = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -94,21 +95,30 @@
             this.materialCheckbox12 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox13 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox14 = new MaterialSkin.Controls.MaterialCheckbox();
-            this.gvTABLE = new System.Windows.Forms.DataGridView();
+            this.grpDIC = new System.Windows.Forms.GroupBox();
+            this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtDIR = new System.Windows.Forms.TextBox();
+            this.btnDIR = new System.Windows.Forms.Button();
+            this.TABLE_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TABLE_COMMENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NUM_ROWS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtLOG = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.materialTabControl1.SuspendLayout();
             this.tabTABLE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvTABLE)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabSQL.SuspendLayout();
             this.tabSCRIPT.SuspendLayout();
+            this.tabLOG.SuspendLayout();
             this.panel4.SuspendLayout();
             this.grpInfo.SuspendLayout();
             this.panel5.SuspendLayout();
             this.grpSetup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvTABLE)).BeginInit();
+            this.grpDIC.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -120,12 +130,12 @@
             this.materialTabControl1.Depth = 0;
             this.materialTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialTabControl1.ImageList = this.imageList1;
-            this.materialTabControl1.Location = new System.Drawing.Point(3, 223);
+            this.materialTabControl1.Location = new System.Drawing.Point(3, 259);
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl1.Multiline = true;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(1223, 724);
+            this.materialTabControl1.Size = new System.Drawing.Size(1150, 688);
             this.materialTabControl1.TabIndex = 0;
             this.materialTabControl1.Tag = "";
             // 
@@ -136,7 +146,7 @@
             this.tabTABLE.Location = new System.Drawing.Point(4, 47);
             this.tabTABLE.Name = "tabTABLE";
             this.tabTABLE.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTABLE.Size = new System.Drawing.Size(1215, 673);
+            this.tabTABLE.Size = new System.Drawing.Size(1142, 637);
             this.tabTABLE.TabIndex = 2;
             this.tabTABLE.Tag = "table정보";
             this.tabTABLE.Text = "TABLE";
@@ -151,8 +161,8 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(1209, 667);
-            this.splitContainer1.SplitterDistance = 573;
+            this.splitContainer1.Size = new System.Drawing.Size(1136, 631);
+            this.splitContainer1.SplitterDistance = 538;
             this.splitContainer1.TabIndex = 0;
             // 
             // groupBox1
@@ -162,22 +172,37 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(573, 667);
+            this.groupBox1.Size = new System.Drawing.Size(538, 631);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Table Search";
             // 
+            // gvTABLE
+            // 
+            this.gvTABLE.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            this.gvTABLE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvTABLE.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TABLE_NAME,
+            this.TABLE_COMMENT,
+            this.NUM_ROWS});
+            this.gvTABLE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gvTABLE.Location = new System.Drawing.Point(3, 52);
+            this.gvTABLE.Name = "gvTABLE";
+            this.gvTABLE.RowTemplate.Height = 23;
+            this.gvTABLE.Size = new System.Drawing.Size(532, 576);
+            this.gvTABLE.TabIndex = 2;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnTableSearch);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.txtTB_DESC);
             this.panel1.Controls.Add(this.Desc);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtTB_NAME);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 17);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(567, 41);
+            this.panel1.Size = new System.Drawing.Size(532, 35);
             this.panel1.TabIndex = 1;
             // 
             // btnTableSearch
@@ -187,7 +212,7 @@
             this.btnTableSearch.Depth = 0;
             this.btnTableSearch.HighEmphasis = true;
             this.btnTableSearch.Icon = null;
-            this.btnTableSearch.Location = new System.Drawing.Point(452, 0);
+            this.btnTableSearch.Location = new System.Drawing.Point(432, 0);
             this.btnTableSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnTableSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnTableSearch.Name = "btnTableSearch";
@@ -200,33 +225,33 @@
             this.btnTableSearch.UseVisualStyleBackColor = true;
             this.btnTableSearch.Click += new System.EventHandler(this.btnTableSearch_Click);
             // 
-            // textBox2
+            // txtTB_DESC
             // 
-            this.textBox2.Location = new System.Drawing.Point(234, 6);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(211, 21);
-            this.textBox2.TabIndex = 9;
+            this.txtTB_DESC.Location = new System.Drawing.Point(213, 6);
+            this.txtTB_DESC.Name = "txtTB_DESC";
+            this.txtTB_DESC.Size = new System.Drawing.Size(211, 21);
+            this.txtTB_DESC.TabIndex = 9;
             // 
             // Desc
             // 
             this.Desc.AutoSize = true;
-            this.Desc.Location = new System.Drawing.Point(194, 9);
+            this.Desc.Location = new System.Drawing.Point(177, 9);
             this.Desc.Name = "Desc";
             this.Desc.Size = new System.Drawing.Size(34, 12);
             this.Desc.TabIndex = 8;
             this.Desc.Text = "Desc";
             // 
-            // textBox1
+            // txtTB_NAME
             // 
-            this.textBox1.Location = new System.Drawing.Point(63, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(114, 21);
-            this.textBox1.TabIndex = 7;
+            this.txtTB_NAME.Location = new System.Drawing.Point(55, 6);
+            this.txtTB_NAME.Name = "txtTB_NAME";
+            this.txtTB_NAME.Size = new System.Drawing.Size(114, 21);
+            this.txtTB_NAME.TabIndex = 7;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 10);
+            this.label1.Location = new System.Drawing.Point(11, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 12);
             this.label1.TabIndex = 0;
@@ -276,10 +301,11 @@
             // 
             // tabLOG
             // 
+            this.tabLOG.Controls.Add(this.txtLOG);
             this.tabLOG.ImageKey = "setting.png";
             this.tabLOG.Location = new System.Drawing.Point(4, 47);
             this.tabLOG.Name = "tabLOG";
-            this.tabLOG.Size = new System.Drawing.Size(1215, 673);
+            this.tabLOG.Size = new System.Drawing.Size(1142, 637);
             this.tabLOG.TabIndex = 3;
             this.tabLOG.Tag = "로그 생성";
             this.tabLOG.Text = "LOG";
@@ -300,7 +326,7 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel1.Location = new System.Drawing.Point(18, 17);
+            this.materialLabel1.Location = new System.Drawing.Point(10, 17);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(14, 17);
@@ -309,9 +335,9 @@
             // 
             // txtIP
             // 
-            this.txtIP.Location = new System.Drawing.Point(39, 15);
+            this.txtIP.Location = new System.Drawing.Point(30, 15);
             this.txtIP.Name = "txtIP";
-            this.txtIP.Size = new System.Drawing.Size(100, 21);
+            this.txtIP.Size = new System.Drawing.Size(148, 21);
             this.txtIP.TabIndex = 2;
             this.txtIP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
@@ -321,7 +347,7 @@
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel2.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel2.Location = new System.Drawing.Point(168, 19);
+            this.materialLabel2.Location = new System.Drawing.Point(184, 17);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(37, 17);
@@ -330,9 +356,9 @@
             // 
             // txtPORT
             // 
-            this.txtPORT.Location = new System.Drawing.Point(216, 15);
+            this.txtPORT.Location = new System.Drawing.Point(225, 15);
             this.txtPORT.Name = "txtPORT";
-            this.txtPORT.Size = new System.Drawing.Size(100, 21);
+            this.txtPORT.Size = new System.Drawing.Size(83, 21);
             this.txtPORT.TabIndex = 4;
             this.txtPORT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
@@ -342,7 +368,7 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel3.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel3.Location = new System.Drawing.Point(341, 19);
+            this.materialLabel3.Location = new System.Drawing.Point(316, 17);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(14, 17);
@@ -351,9 +377,9 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(363, 15);
+            this.txtID.Location = new System.Drawing.Point(336, 15);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(100, 21);
+            this.txtID.Size = new System.Drawing.Size(119, 21);
             this.txtID.TabIndex = 6;
             // 
             // materialLabel4
@@ -362,7 +388,7 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel4.Location = new System.Drawing.Point(485, 19);
+            this.materialLabel4.Location = new System.Drawing.Point(464, 17);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(22, 17);
@@ -371,7 +397,7 @@
             // 
             // txtPW
             // 
-            this.txtPW.Location = new System.Drawing.Point(516, 17);
+            this.txtPW.Location = new System.Drawing.Point(492, 15);
             this.txtPW.Name = "txtPW";
             this.txtPW.PasswordChar = '*';
             this.txtPW.Size = new System.Drawing.Size(100, 21);
@@ -383,7 +409,7 @@
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel5.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel5.Location = new System.Drawing.Point(637, 19);
+            this.materialLabel5.Location = new System.Drawing.Point(604, 17);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
             this.materialLabel5.Size = new System.Drawing.Size(61, 17);
@@ -392,19 +418,20 @@
             // 
             // txtDB
             // 
-            this.txtDB.Location = new System.Drawing.Point(713, 17);
+            this.txtDB.Location = new System.Drawing.Point(672, 15);
             this.txtDB.Name = "txtDB";
             this.txtDB.Size = new System.Drawing.Size(100, 21);
             this.txtDB.TabIndex = 10;
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.grpDIC);
             this.panel4.Controls.Add(this.grpInfo);
             this.panel4.Controls.Add(this.grpSetup);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(3, 64);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1223, 159);
+            this.panel4.Size = new System.Drawing.Size(1150, 195);
             this.panel4.TabIndex = 11;
             // 
             // grpInfo
@@ -420,9 +447,9 @@
             this.grpInfo.Controls.Add(this.txtUser_Name);
             this.grpInfo.Controls.Add(this.materialLabel6);
             this.grpInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grpInfo.Location = new System.Drawing.Point(0, 49);
+            this.grpInfo.Location = new System.Drawing.Point(0, 55);
             this.grpInfo.Name = "grpInfo";
-            this.grpInfo.Size = new System.Drawing.Size(1223, 104);
+            this.grpInfo.Size = new System.Drawing.Size(1150, 92);
             this.grpInfo.TabIndex = 14;
             this.grpInfo.TabStop = false;
             this.grpInfo.Text = "SQL Setup";
@@ -436,7 +463,7 @@
             this.chkALL.Depth = 0;
             this.chkALL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chkALL.ForeColor = System.Drawing.Color.Red;
-            this.chkALL.Location = new System.Drawing.Point(895, 14);
+            this.chkALL.Location = new System.Drawing.Point(781, 15);
             this.chkALL.Margin = new System.Windows.Forms.Padding(0);
             this.chkALL.MouseLocation = new System.Drawing.Point(-1, -1);
             this.chkALL.MouseState = MaterialSkin.MouseState.HOVER;
@@ -463,7 +490,7 @@
             this.panel5.Controls.Add(this.chkSel_Q);
             this.panel5.Location = new System.Drawing.Point(6, 55);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1150, 43);
+            this.panel5.Size = new System.Drawing.Size(1077, 37);
             this.panel5.TabIndex = 10;
             // 
             // chkSel_P
@@ -471,14 +498,14 @@
             this.chkSel_P.AutoSize = true;
             this.chkSel_P.Depth = 0;
             this.chkSel_P.Dock = System.Windows.Forms.DockStyle.Right;
-            this.chkSel_P.Location = new System.Drawing.Point(630, 0);
+            this.chkSel_P.Location = new System.Drawing.Point(557, 0);
             this.chkSel_P.Margin = new System.Windows.Forms.Padding(0);
             this.chkSel_P.MouseLocation = new System.Drawing.Point(-1, -1);
             this.chkSel_P.MouseState = MaterialSkin.MouseState.HOVER;
             this.chkSel_P.Name = "chkSel_P";
             this.chkSel_P.ReadOnly = false;
             this.chkSel_P.Ripple = true;
-            this.chkSel_P.Size = new System.Drawing.Size(103, 43);
+            this.chkSel_P.Size = new System.Drawing.Size(103, 37);
             this.chkSel_P.TabIndex = 5;
             this.chkSel_P.Text = "Select (P)";
             this.chkSel_P.UseVisualStyleBackColor = true;
@@ -488,14 +515,14 @@
             this.chkIns_P.AutoSize = true;
             this.chkIns_P.Depth = 0;
             this.chkIns_P.Dock = System.Windows.Forms.DockStyle.Right;
-            this.chkIns_P.Location = new System.Drawing.Point(733, 0);
+            this.chkIns_P.Location = new System.Drawing.Point(660, 0);
             this.chkIns_P.Margin = new System.Windows.Forms.Padding(0);
             this.chkIns_P.MouseLocation = new System.Drawing.Point(-1, -1);
             this.chkIns_P.MouseState = MaterialSkin.MouseState.HOVER;
             this.chkIns_P.Name = "chkIns_P";
             this.chkIns_P.ReadOnly = false;
             this.chkIns_P.Ripple = true;
-            this.chkIns_P.Size = new System.Drawing.Size(99, 43);
+            this.chkIns_P.Size = new System.Drawing.Size(99, 37);
             this.chkIns_P.TabIndex = 6;
             this.chkIns_P.Text = "Insert (P)";
             this.chkIns_P.UseVisualStyleBackColor = true;
@@ -505,14 +532,14 @@
             this.chkUpd_P.AutoSize = true;
             this.chkUpd_P.Depth = 0;
             this.chkUpd_P.Dock = System.Windows.Forms.DockStyle.Right;
-            this.chkUpd_P.Location = new System.Drawing.Point(832, 0);
+            this.chkUpd_P.Location = new System.Drawing.Point(759, 0);
             this.chkUpd_P.Margin = new System.Windows.Forms.Padding(0);
             this.chkUpd_P.MouseLocation = new System.Drawing.Point(-1, -1);
             this.chkUpd_P.MouseState = MaterialSkin.MouseState.HOVER;
             this.chkUpd_P.Name = "chkUpd_P";
             this.chkUpd_P.ReadOnly = false;
             this.chkUpd_P.Ripple = true;
-            this.chkUpd_P.Size = new System.Drawing.Size(110, 43);
+            this.chkUpd_P.Size = new System.Drawing.Size(110, 37);
             this.chkUpd_P.TabIndex = 7;
             this.chkUpd_P.Text = "Update (P)";
             this.chkUpd_P.UseVisualStyleBackColor = true;
@@ -522,14 +549,14 @@
             this.chkDel_P.AutoSize = true;
             this.chkDel_P.Depth = 0;
             this.chkDel_P.Dock = System.Windows.Forms.DockStyle.Right;
-            this.chkDel_P.Location = new System.Drawing.Point(942, 0);
+            this.chkDel_P.Location = new System.Drawing.Point(869, 0);
             this.chkDel_P.Margin = new System.Windows.Forms.Padding(0);
             this.chkDel_P.MouseLocation = new System.Drawing.Point(-1, -1);
             this.chkDel_P.MouseState = MaterialSkin.MouseState.HOVER;
             this.chkDel_P.Name = "chkDel_P";
             this.chkDel_P.ReadOnly = false;
             this.chkDel_P.Ripple = true;
-            this.chkDel_P.Size = new System.Drawing.Size(104, 43);
+            this.chkDel_P.Size = new System.Drawing.Size(104, 37);
             this.chkDel_P.TabIndex = 8;
             this.chkDel_P.Text = "Delete (P)";
             this.chkDel_P.UseVisualStyleBackColor = true;
@@ -539,14 +566,14 @@
             this.chkMer_P.AutoSize = true;
             this.chkMer_P.Depth = 0;
             this.chkMer_P.Dock = System.Windows.Forms.DockStyle.Right;
-            this.chkMer_P.Location = new System.Drawing.Point(1046, 0);
+            this.chkMer_P.Location = new System.Drawing.Point(973, 0);
             this.chkMer_P.Margin = new System.Windows.Forms.Padding(0);
             this.chkMer_P.MouseLocation = new System.Drawing.Point(-1, -1);
             this.chkMer_P.MouseState = MaterialSkin.MouseState.HOVER;
             this.chkMer_P.Name = "chkMer_P";
             this.chkMer_P.ReadOnly = false;
             this.chkMer_P.Ripple = true;
-            this.chkMer_P.Size = new System.Drawing.Size(104, 43);
+            this.chkMer_P.Size = new System.Drawing.Size(104, 37);
             this.chkMer_P.TabIndex = 9;
             this.chkMer_P.Text = "Merge (P)";
             this.chkMer_P.UseVisualStyleBackColor = true;
@@ -563,7 +590,7 @@
             this.chkMer_Q.Name = "chkMer_Q";
             this.chkMer_Q.ReadOnly = false;
             this.chkMer_Q.Ripple = true;
-            this.chkMer_Q.Size = new System.Drawing.Size(105, 43);
+            this.chkMer_Q.Size = new System.Drawing.Size(105, 37);
             this.chkMer_Q.TabIndex = 4;
             this.chkMer_Q.Text = "Merge (Q)";
             this.chkMer_Q.UseVisualStyleBackColor = true;
@@ -580,7 +607,7 @@
             this.chkDel_Q.Name = "chkDel_Q";
             this.chkDel_Q.ReadOnly = false;
             this.chkDel_Q.Ripple = true;
-            this.chkDel_Q.Size = new System.Drawing.Size(105, 43);
+            this.chkDel_Q.Size = new System.Drawing.Size(105, 37);
             this.chkDel_Q.TabIndex = 3;
             this.chkDel_Q.Text = "Delete (Q)";
             this.chkDel_Q.UseVisualStyleBackColor = true;
@@ -597,7 +624,7 @@
             this.chkUpd_Q.Name = "chkUpd_Q";
             this.chkUpd_Q.ReadOnly = false;
             this.chkUpd_Q.Ripple = true;
-            this.chkUpd_Q.Size = new System.Drawing.Size(111, 43);
+            this.chkUpd_Q.Size = new System.Drawing.Size(111, 37);
             this.chkUpd_Q.TabIndex = 2;
             this.chkUpd_Q.Text = "Update (Q)";
             this.chkUpd_Q.UseVisualStyleBackColor = true;
@@ -614,7 +641,7 @@
             this.chkIns_Q.Name = "chkIns_Q";
             this.chkIns_Q.ReadOnly = false;
             this.chkIns_Q.Ripple = true;
-            this.chkIns_Q.Size = new System.Drawing.Size(100, 43);
+            this.chkIns_Q.Size = new System.Drawing.Size(100, 37);
             this.chkIns_Q.TabIndex = 1;
             this.chkIns_Q.Text = "Insert (Q)";
             this.chkIns_Q.UseVisualStyleBackColor = true;
@@ -631,14 +658,14 @@
             this.chkSel_Q.Name = "chkSel_Q";
             this.chkSel_Q.ReadOnly = false;
             this.chkSel_Q.Ripple = true;
-            this.chkSel_Q.Size = new System.Drawing.Size(104, 43);
+            this.chkSel_Q.Size = new System.Drawing.Size(104, 37);
             this.chkSel_Q.TabIndex = 0;
             this.chkSel_Q.Text = "Select (Q)";
             this.chkSel_Q.UseVisualStyleBackColor = true;
             // 
             // txtSample_Cnt
             // 
-            this.txtSample_Cnt.Location = new System.Drawing.Point(748, 22);
+            this.txtSample_Cnt.Location = new System.Drawing.Point(678, 24);
             this.txtSample_Cnt.Name = "txtSample_Cnt";
             this.txtSample_Cnt.Size = new System.Drawing.Size(100, 21);
             this.txtSample_Cnt.TabIndex = 9;
@@ -650,7 +677,7 @@
             this.materialLabel9.Depth = 0;
             this.materialLabel9.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel9.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel9.Location = new System.Drawing.Point(590, 26);
+            this.materialLabel9.Location = new System.Drawing.Point(520, 26);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
             this.materialLabel9.Size = new System.Drawing.Size(152, 17);
@@ -659,7 +686,7 @@
             // 
             // txtSP_Affix
             // 
-            this.txtSP_Affix.Location = new System.Drawing.Point(470, 24);
+            this.txtSP_Affix.Location = new System.Drawing.Point(414, 24);
             this.txtSP_Affix.Name = "txtSP_Affix";
             this.txtSP_Affix.Size = new System.Drawing.Size(100, 21);
             this.txtSP_Affix.TabIndex = 7;
@@ -670,7 +697,7 @@
             this.materialLabel8.Depth = 0;
             this.materialLabel8.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel8.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel8.Location = new System.Drawing.Point(415, 26);
+            this.materialLabel8.Location = new System.Drawing.Point(361, 26);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
             this.materialLabel8.Size = new System.Drawing.Size(49, 17);
@@ -679,7 +706,7 @@
             // 
             // txtSP_Prefix
             // 
-            this.txtSP_Prefix.Location = new System.Drawing.Point(290, 24);
+            this.txtSP_Prefix.Location = new System.Drawing.Point(255, 24);
             this.txtSP_Prefix.Name = "txtSP_Prefix";
             this.txtSP_Prefix.Size = new System.Drawing.Size(100, 21);
             this.txtSP_Prefix.TabIndex = 5;
@@ -690,7 +717,7 @@
             this.materialLabel7.Depth = 0;
             this.materialLabel7.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel7.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel7.Location = new System.Drawing.Point(213, 26);
+            this.materialLabel7.Location = new System.Drawing.Point(192, 26);
             this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel7.Name = "materialLabel7";
             this.materialLabel7.Size = new System.Drawing.Size(57, 17);
@@ -699,7 +726,7 @@
             // 
             // txtUser_Name
             // 
-            this.txtUser_Name.Location = new System.Drawing.Point(91, 24);
+            this.txtUser_Name.Location = new System.Drawing.Point(86, 24);
             this.txtUser_Name.Name = "txtUser_Name";
             this.txtUser_Name.Size = new System.Drawing.Size(100, 21);
             this.txtUser_Name.TabIndex = 3;
@@ -710,7 +737,7 @@
             this.materialLabel6.Depth = 0;
             this.materialLabel6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel6.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel6.Location = new System.Drawing.Point(18, 26);
+            this.materialLabel6.Location = new System.Drawing.Point(11, 26);
             this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel6.Name = "materialLabel6";
             this.materialLabel6.Size = new System.Drawing.Size(69, 17);
@@ -734,7 +761,7 @@
             this.grpSetup.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpSetup.Location = new System.Drawing.Point(0, 0);
             this.grpSetup.Name = "grpSetup";
-            this.grpSetup.Size = new System.Drawing.Size(1223, 49);
+            this.grpSetup.Size = new System.Drawing.Size(1150, 55);
             this.grpSetup.TabIndex = 13;
             this.grpSetup.TabStop = false;
             this.grpSetup.Text = "DB Info";
@@ -745,7 +772,7 @@
             this.chkUNICODE.Checked = true;
             this.chkUNICODE.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkUNICODE.Depth = 0;
-            this.chkUNICODE.Location = new System.Drawing.Point(830, 9);
+            this.chkUNICODE.Location = new System.Drawing.Point(777, 9);
             this.chkUNICODE.Margin = new System.Windows.Forms.Padding(0);
             this.chkUNICODE.MouseLocation = new System.Drawing.Point(-1, -1);
             this.chkUNICODE.MouseState = MaterialSkin.MouseState.HOVER;
@@ -763,7 +790,7 @@
             this.btnCONNECT.Depth = 0;
             this.btnCONNECT.HighEmphasis = true;
             this.btnCONNECT.Icon = null;
-            this.btnCONNECT.Location = new System.Drawing.Point(1061, 8);
+            this.btnCONNECT.Location = new System.Drawing.Point(947, 9);
             this.btnCONNECT.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCONNECT.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCONNECT.Name = "btnCONNECT";
@@ -973,26 +1000,105 @@
             this.materialCheckbox14.Text = "materialCheckbox14";
             this.materialCheckbox14.UseVisualStyleBackColor = true;
             // 
-            // gvTABLE
+            // grpDIC
             // 
-            this.gvTABLE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvTABLE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gvTABLE.Location = new System.Drawing.Point(3, 58);
-            this.gvTABLE.Name = "gvTABLE";
-            this.gvTABLE.RowTemplate.Height = 23;
-            this.gvTABLE.Size = new System.Drawing.Size(567, 606);
-            this.gvTABLE.TabIndex = 2;
+            this.grpDIC.Controls.Add(this.btnDIR);
+            this.grpDIC.Controls.Add(this.txtDIR);
+            this.grpDIC.Controls.Add(this.materialLabel10);
+            this.grpDIC.Dock = System.Windows.Forms.DockStyle.Top;
+            this.grpDIC.Location = new System.Drawing.Point(0, 147);
+            this.grpDIC.Name = "grpDIC";
+            this.grpDIC.Size = new System.Drawing.Size(1150, 47);
+            this.grpDIC.TabIndex = 15;
+            this.grpDIC.TabStop = false;
+            this.grpDIC.Text = "Save File Directory";
+            // 
+            // materialLabel10
+            // 
+            this.materialLabel10.AutoSize = true;
+            this.materialLabel10.Depth = 0;
+            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel10.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel10.Location = new System.Drawing.Point(13, 20);
+            this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel10.Name = "materialLabel10";
+            this.materialLabel10.Size = new System.Drawing.Size(111, 17);
+            this.materialLabel10.TabIndex = 3;
+            this.materialLabel10.Text = "SaveFile Directory";
+            // 
+            // txtDIR
+            // 
+            this.txtDIR.Location = new System.Drawing.Point(133, 18);
+            this.txtDIR.Name = "txtDIR";
+            this.txtDIR.Size = new System.Drawing.Size(335, 21);
+            this.txtDIR.TabIndex = 4;
+            // 
+            // btnDIR
+            // 
+            this.btnDIR.Location = new System.Drawing.Point(468, 17);
+            this.btnDIR.Name = "btnDIR";
+            this.btnDIR.Size = new System.Drawing.Size(28, 23);
+            this.btnDIR.TabIndex = 5;
+            this.btnDIR.Text = "...";
+            this.btnDIR.UseVisualStyleBackColor = true;
+            this.btnDIR.Click += new System.EventHandler(this.btnDIR_Click);
+            // 
+            // TABLE_NAME
+            // 
+            this.TABLE_NAME.HeaderText = "이름";
+            this.TABLE_NAME.Name = "TABLE_NAME";
+            this.TABLE_NAME.ReadOnly = true;
+            // 
+            // TABLE_COMMENT
+            // 
+            this.TABLE_COMMENT.HeaderText = "주석";
+            this.TABLE_COMMENT.Name = "TABLE_COMMENT";
+            this.TABLE_COMMENT.ReadOnly = true;
+            // 
+            // NUM_ROWS
+            // 
+            this.NUM_ROWS.HeaderText = "행수";
+            this.NUM_ROWS.Name = "NUM_ROWS";
+            this.NUM_ROWS.ReadOnly = true;
+            // 
+            // txtLOG
+            // 
+            this.txtLOG.AnimateReadOnly = false;
+            this.txtLOG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtLOG.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtLOG.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtLOG.Depth = 0;
+            this.txtLOG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLOG.HideSelection = true;
+            this.txtLOG.Location = new System.Drawing.Point(0, 0);
+            this.txtLOG.MaxLength = 32767;
+            this.txtLOG.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtLOG.Name = "txtLOG";
+            this.txtLOG.PasswordChar = '\0';
+            this.txtLOG.ReadOnly = true;
+            this.txtLOG.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtLOG.SelectedText = "";
+            this.txtLOG.SelectionLength = 0;
+            this.txtLOG.SelectionStart = 0;
+            this.txtLOG.ShortcutsEnabled = true;
+            this.txtLOG.Size = new System.Drawing.Size(1142, 637);
+            this.txtLOG.TabIndex = 0;
+            this.txtLOG.TabStop = false;
+            this.txtLOG.Text = "materialMultiLineTextBox21";
+            this.txtLOG.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtLOG.UseSystemPasswordChar = false;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1229, 950);
+            this.ClientSize = new System.Drawing.Size(1156, 950);
             this.Controls.Add(this.materialTabControl1);
             this.Controls.Add(this.panel4);
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl1;
             this.Name = "frmMain";
+            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CODE MAKER";
             this.Load += new System.EventHandler(this.frmMain_Load);
@@ -1002,10 +1108,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gvTABLE)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabSQL.ResumeLayout(false);
             this.tabSCRIPT.ResumeLayout(false);
+            this.tabLOG.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.grpInfo.ResumeLayout(false);
             this.grpInfo.PerformLayout();
@@ -1013,7 +1121,8 @@
             this.panel5.PerformLayout();
             this.grpSetup.ResumeLayout(false);
             this.grpSetup.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvTABLE)).EndInit();
+            this.grpDIC.ResumeLayout(false);
+            this.grpDIC.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1079,12 +1188,20 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTB_DESC;
         private System.Windows.Forms.Label Desc;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtTB_NAME;
         private System.Windows.Forms.Label label1;
         private MaterialSkin.Controls.MaterialButton btnTableSearch;
         private System.Windows.Forms.DataGridView gvTABLE;
+        private System.Windows.Forms.GroupBox grpDIC;
+        private System.Windows.Forms.TextBox txtDIR;
+        private MaterialSkin.Controls.MaterialLabel materialLabel10;
+        private System.Windows.Forms.Button btnDIR;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TABLE_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TABLE_COMMENT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NUM_ROWS;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox2 txtLOG;
     }
 }
 

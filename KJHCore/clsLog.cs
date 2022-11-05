@@ -8,7 +8,7 @@ namespace KJHCore
 {
     public class clsLog
     {
-        private static string _filePath = "C:\\DSINFO\\CodeMaker\\Log";
+        private static string _filePath = "C:\\CodeMaker\\Log";
         private static string _newLine = "\r\n";
 
         public static string filePath

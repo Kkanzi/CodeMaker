@@ -131,7 +131,10 @@ namespace KJHCore
           string OracleConnectionString,
           string MsqlConnectionString,
           DBKind DBkind,
-          LANG inLang)
+          LANG inLang,
+          string prefix,
+          string affix,
+          string DBname)
         {
             this.OracleConStr = OracleConnectionString;
             this.MssqlConStr = MsqlConnectionString;
@@ -140,6 +143,9 @@ namespace KJHCore
             this.DSResult = new DataSet();
             this.ErrorMessage = string.Empty;
             this.ExistError = false;
+            this._createSP_Bdiv = prefix;
+            this._createSP_Mdiv = affix;
+            this._table_Catalog = DBname;
         }
 
         public string GetSelectSql(string tblINm, DataTable inDt, string condition, bool boolPlsql)

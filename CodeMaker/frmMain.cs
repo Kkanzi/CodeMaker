@@ -18,7 +18,7 @@ namespace CodeMaker
     public partial class frmMain : MaterialForm
     {
         CGCOMMON gc = null;
-
+        
         public frmMain()
         {
             InitializeComponent();
@@ -35,11 +35,13 @@ namespace CodeMaker
                 TextShade.WHITE
             );
 
-            clsLog.filePath = "";
+            clsLog.filePath = Application.StartupPath;
         }
         #region 이벤트
         private void frmMain_Load(object sender, EventArgs e)
         {
+            ConfigLoad();
+
             chkALL_CheckedChanged(null, null);
         }
 
@@ -61,7 +63,7 @@ namespace CodeMaker
             }
             catch (Exception ex)
             {
-                clsLog.ErrLog(ex.Message);
+                PrintLog(ex);
             }
         }
 
@@ -100,7 +102,7 @@ namespace CodeMaker
             }
             catch (Exception ex)
             {
-                clsLog.ErrLog(ex.Message);
+                PrintLog(ex);
             }
         }
 
@@ -138,16 +140,53 @@ namespace CodeMaker
                     return;
                 }
 
+                if (string.IsNullOrEmpty(txtSP_Prefix.Text.Trim()))
+                {
+                    MaterialMessageBox.Show("SP생성 접두사를 입력해주시기 바랍니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(txtSP_Affix.Text.Trim()))
+                {
+                    MaterialMessageBox.Show("SP생성 접속사를 입력해주시기 바랍니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 string MsSqlConn = $@"data source = {txtIP.Text.Trim()},{txtPORT.Text.Trim()} ; initial Catalog = {txtDB.Text.Trim()} ; user id = {txtID.Text.Trim()} ;PASSWORD = {txtPW.Text.Trim()}";
 
-                gc = new CGCOMMON(string.Empty, MsSqlConn, DBKind.MSSQL, LANG.KOR);
+                gc = new CGCOMMON(string.Empty, MsSqlConn, DBKind.MSSQL, LANG.KOR, txtSP_Prefix.Text, txtSP_Affix.Text, txtDB.Text);
 
                 TableSearch();
-
             }
             catch (Exception ex)
             {
-                clsLog.ErrLog(ex.Message);
+                PrintLog(ex);
+            }
+            finally
+            {
+                ConfigSave();
+            }
+        }
+
+        private void btnTableSearch_Click(object sender, EventArgs e)
+        {
+            TableSearch();
+        }
+
+        private void btnDIR_Click(object sender, EventArgs e)
+        {
+            try
+            { 
+                FolderBrowserDialog fd = new FolderBrowserDialog();
+
+                if (fd.ShowDialog() == DialogResult.OK)
+                {
+                    txtDIR.Text = fd.SelectedPath;
+                }
+            }
+            catch (Exception ex)
+            {
+                PrintLog(ex);
             }
         }
 
@@ -155,6 +194,20 @@ namespace CodeMaker
 
 
         #region 메서드
+        private void PrintLog(Exception ex)
+        {
+            StringBuilder sb = new StringBuilder(string.Empty);
+
+            sb.AppendLine(DateTime.Now.ToString());
+            sb.AppendLine(ex.Message);
+            sb.AppendLine(ex.StackTrace);
+            sb.AppendLine("");
+
+            txtLOG.Text += sb.ToString();
+
+            clsLog.ErrLog(ex);
+        }
+
         private void TableSearch()
         {
             if (gc == null)
@@ -162,13 +215,51 @@ namespace CodeMaker
                 MaterialMessageBox.Show("먼저 DB Connect를 해주시기바랍니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            DataTable dt = new DataTable();
+            dt = gc.GetDBTableList(DBKind.MSSQL, txtTB_NAME.Text, txtTB_DESC.Text);
+
+            if (dt.Rows.Count > 0)
+            {
+                gvTABLE.DataSource = dt;
+            }
+            else
+            {
+                MaterialMessageBox.Show("DB에 등록된 테이블이 존재하지 않습니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
+        private void ConfigLoad()
+        {
+            txtIP.Text = AppConfigHelper.GetAppConfig("MSSQLIP");
+            txtPORT.Text = AppConfigHelper.GetAppConfig("MSSQLPORT");
+            txtID.Text = AppConfigHelper.GetAppConfig("MSSQLID");
+            txtPW.Text = AppConfigHelper.GetAppConfig("MSSQLPW");
+            txtDB.Text = AppConfigHelper.GetAppConfig("MSSQLDBNAME");
+            txtUser_Name.Text = AppConfigHelper.GetAppConfig("USERNAME");
+            txtSP_Prefix.Text = AppConfigHelper.GetAppConfig("PREFIX");
+            txtSP_Affix.Text = AppConfigHelper.GetAppConfig("AFFIX");
+            txtSample_Cnt.Text = AppConfigHelper.GetAppConfig("SAM_ROW_CNT");
+            txtDIR.Text = AppConfigHelper.GetAppConfig("SAVEFILE_DIR");
+        }
+
+        private void ConfigSave()
+        {
+            AppConfigHelper.SetAppConfig("MSSQLIP", txtIP.Text);
+            AppConfigHelper.SetAppConfig("MSSQLPORT", txtPORT.Text);
+            AppConfigHelper.SetAppConfig("MSSQLID", txtID.Text);
+            AppConfigHelper.SetAppConfig("MSSQLPW", txtPW.Text);
+            AppConfigHelper.SetAppConfig("MSSQLDBNAME", txtDB.Text);
+            AppConfigHelper.SetAppConfig("USERNAME", txtUser_Name.Text);
+            AppConfigHelper.SetAppConfig("PREFIX", txtSP_Prefix.Text);
+            AppConfigHelper.SetAppConfig("AFFIX", txtSP_Affix.Text);
+            AppConfigHelper.SetAppConfig("SAM_ROW_CNT", txtSample_Cnt.Text);
+            AppConfigHelper.SetAppConfig("SAVEFILE_DIR", txtDIR.Text);
+        }
+
 
         #endregion
 
-        private void btnTableSearch_Click(object sender, EventArgs e)
-        {
-            TableSearch();
-        }
+        
     }
 }
