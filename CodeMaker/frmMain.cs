@@ -190,6 +190,19 @@ namespace CodeMaker
             }
         }
 
+        private void gvTABLE_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (gvTABLE.Rows.Count > 0)
+            {
+                //e.RowIndex;
+                FrmPopup frm = new FrmPopup();
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            }
+        }
+
         #endregion
 
 
@@ -222,6 +235,10 @@ namespace CodeMaker
             if (dt.Rows.Count > 0)
             {
                 gvTABLE.DataSource = dt;
+
+                gvTABLE.Columns["TABLE_CATALOG"].Visible = false;
+                gvTABLE.Columns["TABLE_SCHEMA"].Visible = false;
+                gvTABLE.Columns["TABLE_TYPE"].Visible = false;
             }
             else
             {
@@ -256,6 +273,7 @@ namespace CodeMaker
             AppConfigHelper.SetAppConfig("SAM_ROW_CNT", txtSample_Cnt.Text);
             AppConfigHelper.SetAppConfig("SAVEFILE_DIR", txtDIR.Text);
         }
+
 
 
         #endregion

@@ -46,6 +46,7 @@
             this.tabSCRIPT = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tabLOG = new System.Windows.Forms.TabPage();
+            this.txtLOG = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.txtIP = new System.Windows.Forms.TextBox();
@@ -58,6 +59,10 @@
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.txtDB = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.grpDIC = new System.Windows.Forms.GroupBox();
+            this.btnDIR = new System.Windows.Forms.Button();
+            this.txtDIR = new System.Windows.Forms.TextBox();
+            this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             this.grpInfo = new System.Windows.Forms.GroupBox();
             this.chkALL = new MaterialSkin.Controls.MaterialCheckbox();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -95,14 +100,9 @@
             this.materialCheckbox12 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox13 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox14 = new MaterialSkin.Controls.MaterialCheckbox();
-            this.grpDIC = new System.Windows.Forms.GroupBox();
-            this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtDIR = new System.Windows.Forms.TextBox();
-            this.btnDIR = new System.Windows.Forms.Button();
             this.TABLE_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TABLE_COMMENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NUM_ROWS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtLOG = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.materialTabControl1.SuspendLayout();
             this.tabTABLE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -115,10 +115,10 @@
             this.tabSCRIPT.SuspendLayout();
             this.tabLOG.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.grpDIC.SuspendLayout();
             this.grpInfo.SuspendLayout();
             this.panel5.SuspendLayout();
             this.grpSetup.SuspendLayout();
-            this.grpDIC.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -179,6 +179,7 @@
             // 
             // gvTABLE
             // 
+            this.gvTABLE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gvTABLE.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.gvTABLE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvTABLE.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -189,8 +190,10 @@
             this.gvTABLE.Location = new System.Drawing.Point(3, 52);
             this.gvTABLE.Name = "gvTABLE";
             this.gvTABLE.RowTemplate.Height = 23;
+            this.gvTABLE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvTABLE.Size = new System.Drawing.Size(532, 576);
             this.gvTABLE.TabIndex = 2;
+            this.gvTABLE.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvTABLE_CellDoubleClick);
             // 
             // panel1
             // 
@@ -264,7 +267,7 @@
             this.tabSQL.Location = new System.Drawing.Point(4, 47);
             this.tabSQL.Name = "tabSQL";
             this.tabSQL.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSQL.Size = new System.Drawing.Size(1215, 673);
+            this.tabSQL.Size = new System.Drawing.Size(1142, 637);
             this.tabSQL.TabIndex = 0;
             this.tabSQL.Tag = "쿼리작성";
             this.tabSQL.Text = "SQL";
@@ -275,7 +278,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1209, 667);
+            this.panel2.Size = new System.Drawing.Size(1136, 631);
             this.panel2.TabIndex = 0;
             // 
             // tabSCRIPT
@@ -285,7 +288,7 @@
             this.tabSCRIPT.Location = new System.Drawing.Point(4, 47);
             this.tabSCRIPT.Name = "tabSCRIPT";
             this.tabSCRIPT.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSCRIPT.Size = new System.Drawing.Size(1215, 673);
+            this.tabSCRIPT.Size = new System.Drawing.Size(1142, 637);
             this.tabSCRIPT.TabIndex = 1;
             this.tabSCRIPT.Tag = "스크립트생성";
             this.tabSCRIPT.Text = "SCRIPT";
@@ -296,7 +299,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1209, 667);
+            this.panel3.Size = new System.Drawing.Size(1136, 631);
             this.panel3.TabIndex = 0;
             // 
             // tabLOG
@@ -310,6 +313,33 @@
             this.tabLOG.Tag = "로그 생성";
             this.tabLOG.Text = "LOG";
             this.tabLOG.UseVisualStyleBackColor = true;
+            // 
+            // txtLOG
+            // 
+            this.txtLOG.AnimateReadOnly = false;
+            this.txtLOG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtLOG.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtLOG.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtLOG.Depth = 0;
+            this.txtLOG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLOG.HideSelection = true;
+            this.txtLOG.Location = new System.Drawing.Point(0, 0);
+            this.txtLOG.MaxLength = 32767;
+            this.txtLOG.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtLOG.Name = "txtLOG";
+            this.txtLOG.PasswordChar = '\0';
+            this.txtLOG.ReadOnly = true;
+            this.txtLOG.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtLOG.SelectedText = "";
+            this.txtLOG.SelectionLength = 0;
+            this.txtLOG.SelectionStart = 0;
+            this.txtLOG.ShortcutsEnabled = true;
+            this.txtLOG.Size = new System.Drawing.Size(1142, 637);
+            this.txtLOG.TabIndex = 0;
+            this.txtLOG.TabStop = false;
+            this.txtLOG.Text = "materialMultiLineTextBox21";
+            this.txtLOG.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtLOG.UseSystemPasswordChar = false;
             // 
             // imageList1
             // 
@@ -433,6 +463,49 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1150, 195);
             this.panel4.TabIndex = 11;
+            // 
+            // grpDIC
+            // 
+            this.grpDIC.Controls.Add(this.btnDIR);
+            this.grpDIC.Controls.Add(this.txtDIR);
+            this.grpDIC.Controls.Add(this.materialLabel10);
+            this.grpDIC.Dock = System.Windows.Forms.DockStyle.Top;
+            this.grpDIC.Location = new System.Drawing.Point(0, 147);
+            this.grpDIC.Name = "grpDIC";
+            this.grpDIC.Size = new System.Drawing.Size(1150, 47);
+            this.grpDIC.TabIndex = 15;
+            this.grpDIC.TabStop = false;
+            this.grpDIC.Text = "Save File Directory";
+            // 
+            // btnDIR
+            // 
+            this.btnDIR.Location = new System.Drawing.Point(468, 17);
+            this.btnDIR.Name = "btnDIR";
+            this.btnDIR.Size = new System.Drawing.Size(28, 23);
+            this.btnDIR.TabIndex = 5;
+            this.btnDIR.Text = "...";
+            this.btnDIR.UseVisualStyleBackColor = true;
+            this.btnDIR.Click += new System.EventHandler(this.btnDIR_Click);
+            // 
+            // txtDIR
+            // 
+            this.txtDIR.Location = new System.Drawing.Point(133, 18);
+            this.txtDIR.Name = "txtDIR";
+            this.txtDIR.Size = new System.Drawing.Size(335, 21);
+            this.txtDIR.TabIndex = 4;
+            // 
+            // materialLabel10
+            // 
+            this.materialLabel10.AutoSize = true;
+            this.materialLabel10.Depth = 0;
+            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel10.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
+            this.materialLabel10.Location = new System.Drawing.Point(13, 20);
+            this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel10.Name = "materialLabel10";
+            this.materialLabel10.Size = new System.Drawing.Size(111, 17);
+            this.materialLabel10.TabIndex = 3;
+            this.materialLabel10.Text = "SaveFile Directory";
             // 
             // grpInfo
             // 
@@ -1000,93 +1073,26 @@
             this.materialCheckbox14.Text = "materialCheckbox14";
             this.materialCheckbox14.UseVisualStyleBackColor = true;
             // 
-            // grpDIC
-            // 
-            this.grpDIC.Controls.Add(this.btnDIR);
-            this.grpDIC.Controls.Add(this.txtDIR);
-            this.grpDIC.Controls.Add(this.materialLabel10);
-            this.grpDIC.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grpDIC.Location = new System.Drawing.Point(0, 147);
-            this.grpDIC.Name = "grpDIC";
-            this.grpDIC.Size = new System.Drawing.Size(1150, 47);
-            this.grpDIC.TabIndex = 15;
-            this.grpDIC.TabStop = false;
-            this.grpDIC.Text = "Save File Directory";
-            // 
-            // materialLabel10
-            // 
-            this.materialLabel10.AutoSize = true;
-            this.materialLabel10.Depth = 0;
-            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel10.FontType = MaterialSkin.MaterialSkinManager.fontType.Body2;
-            this.materialLabel10.Location = new System.Drawing.Point(13, 20);
-            this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel10.Name = "materialLabel10";
-            this.materialLabel10.Size = new System.Drawing.Size(111, 17);
-            this.materialLabel10.TabIndex = 3;
-            this.materialLabel10.Text = "SaveFile Directory";
-            // 
-            // txtDIR
-            // 
-            this.txtDIR.Location = new System.Drawing.Point(133, 18);
-            this.txtDIR.Name = "txtDIR";
-            this.txtDIR.Size = new System.Drawing.Size(335, 21);
-            this.txtDIR.TabIndex = 4;
-            // 
-            // btnDIR
-            // 
-            this.btnDIR.Location = new System.Drawing.Point(468, 17);
-            this.btnDIR.Name = "btnDIR";
-            this.btnDIR.Size = new System.Drawing.Size(28, 23);
-            this.btnDIR.TabIndex = 5;
-            this.btnDIR.Text = "...";
-            this.btnDIR.UseVisualStyleBackColor = true;
-            this.btnDIR.Click += new System.EventHandler(this.btnDIR_Click);
-            // 
             // TABLE_NAME
             // 
-            this.TABLE_NAME.HeaderText = "이름";
+            this.TABLE_NAME.DataPropertyName = "TABLE_NAME";
+            this.TABLE_NAME.HeaderText = "테이블 명";
             this.TABLE_NAME.Name = "TABLE_NAME";
             this.TABLE_NAME.ReadOnly = true;
             // 
             // TABLE_COMMENT
             // 
+            this.TABLE_COMMENT.DataPropertyName = "TABLE_COMMENT";
             this.TABLE_COMMENT.HeaderText = "주석";
             this.TABLE_COMMENT.Name = "TABLE_COMMENT";
             this.TABLE_COMMENT.ReadOnly = true;
             // 
             // NUM_ROWS
             // 
+            this.NUM_ROWS.DataPropertyName = "NUM_ROWS";
             this.NUM_ROWS.HeaderText = "행수";
             this.NUM_ROWS.Name = "NUM_ROWS";
             this.NUM_ROWS.ReadOnly = true;
-            // 
-            // txtLOG
-            // 
-            this.txtLOG.AnimateReadOnly = false;
-            this.txtLOG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtLOG.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtLOG.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtLOG.Depth = 0;
-            this.txtLOG.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLOG.HideSelection = true;
-            this.txtLOG.Location = new System.Drawing.Point(0, 0);
-            this.txtLOG.MaxLength = 32767;
-            this.txtLOG.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtLOG.Name = "txtLOG";
-            this.txtLOG.PasswordChar = '\0';
-            this.txtLOG.ReadOnly = true;
-            this.txtLOG.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLOG.SelectedText = "";
-            this.txtLOG.SelectionLength = 0;
-            this.txtLOG.SelectionStart = 0;
-            this.txtLOG.ShortcutsEnabled = true;
-            this.txtLOG.Size = new System.Drawing.Size(1142, 637);
-            this.txtLOG.TabIndex = 0;
-            this.txtLOG.TabStop = false;
-            this.txtLOG.Text = "materialMultiLineTextBox21";
-            this.txtLOG.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtLOG.UseSystemPasswordChar = false;
             // 
             // frmMain
             // 
@@ -1115,14 +1121,14 @@
             this.tabSCRIPT.ResumeLayout(false);
             this.tabLOG.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.grpDIC.ResumeLayout(false);
+            this.grpDIC.PerformLayout();
             this.grpInfo.ResumeLayout(false);
             this.grpInfo.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.grpSetup.ResumeLayout(false);
             this.grpSetup.PerformLayout();
-            this.grpDIC.ResumeLayout(false);
-            this.grpDIC.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1198,10 +1204,10 @@
         private System.Windows.Forms.TextBox txtDIR;
         private MaterialSkin.Controls.MaterialLabel materialLabel10;
         private System.Windows.Forms.Button btnDIR;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox2 txtLOG;
         private System.Windows.Forms.DataGridViewTextBoxColumn TABLE_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn TABLE_COMMENT;
         private System.Windows.Forms.DataGridViewTextBoxColumn NUM_ROWS;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox2 txtLOG;
     }
 }
 
