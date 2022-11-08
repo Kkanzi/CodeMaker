@@ -110,6 +110,12 @@ namespace CodeMaker
         {
             try
             {
+                if (gc != null)
+                {
+                    MaterialMessageBox.Show("이미 연결되었습니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
                 if (string.IsNullOrEmpty(txtIP.Text.Trim()))
                 {
                     MaterialMessageBox.Show("IP를 입력해주시기 바랍니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -192,14 +198,72 @@ namespace CodeMaker
 
         private void gvTABLE_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (gvTABLE.Rows.Count > 0)
+            try
             {
-                //e.RowIndex;
-                FrmPopup frm = new FrmPopup();
-                if (frm.ShowDialog() == DialogResult.OK)
+                if (gvTABLE.Rows.Count > 0)
                 {
+                    string strTableName = gvTABLE.Rows[e.RowIndex].Cells["TABLE_NAME"].Value.ToString();
+                    string strComment = gvTABLE.Rows[e.RowIndex].Cells["TABLE_COMMENT"].Value.ToString();
 
+                    //e.RowIndex;
+                    FrmPopup frm = new FrmPopup(gc, strTableName, strComment);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        TableSearch();
+                        //frm.OutComment
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                PrintLog(ex);
+            }
+            
+        }
+
+        private void gvTABLE_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (gvTABLE.Rows.Count > 0)
+                {
+                    string strTableName = gvTABLE.Rows[e.RowIndex].Cells["TABLE_NAME"].Value.ToString();
+
+                    DataTable dt = gc.GetColumnInfoMSSQL(strTableName);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        gvColumn.DataSource = dt;
+
+                        gvColumn.Columns["TABLE_SCHEMA"].Visible = false;
+                        gvColumn.Columns["TABLE_CATALOG"].Visible = false;
+                        gvColumn.Columns["TABLE_NAME"].Visible = false;
+                        gvColumn.Columns["TABLE_COMMENTS"].Visible = false;
+                        gvColumn.Columns["COLUMN_NAME_LEN"].Visible = false;
+                        gvColumn.Columns["COLUMN_NAME_MAX_LEN"].Visible = false;
+                        gvColumn.Columns["COLUMN_ID_MAX"].Visible = false;
+                        gvColumn.Columns["DATA_LENGTH"].Visible = false;
+                        gvColumn.Columns["DATA_PRECISION"].Visible = false;
+                        gvColumn.Columns["DATA_SCALE"].Visible = false;
+                        gvColumn.Columns["DATA_LEN_STR"].Visible = false;
+                        gvColumn.Columns["COLUMN_NAME_MAX_LEN_PK"].Visible = false;
+                        gvColumn.Columns["PK_SEQ"].Visible = false;
+                        gvColumn.Columns["DATA_TYPE_MAX"].Visible = false;
+                        gvColumn.Columns["DATA_LEN_STR_MAX"].Visible = false;
+                        
+                        txtRDB_Name.Text = strTableName;
+                    }
+                    else
+                    {
+                        gvColumn.DataSource = null;
+                        txtRDB_Name.Text = string.Empty;
+                        MaterialMessageBox.Show("테이블에 등록된 컬럼이 존재하지 않습니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                PrintLog(ex);
             }
         }
 
@@ -223,6 +287,9 @@ namespace CodeMaker
 
         private void TableSearch()
         {
+            gvTABLE.DataSource = null;
+            gvColumn.DataSource = null;
+
             if (gc == null)
             {
                 MaterialMessageBox.Show("먼저 DB Connect를 해주시기바랍니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -239,9 +306,17 @@ namespace CodeMaker
                 gvTABLE.Columns["TABLE_CATALOG"].Visible = false;
                 gvTABLE.Columns["TABLE_SCHEMA"].Visible = false;
                 gvTABLE.Columns["TABLE_TYPE"].Visible = false;
+
+                gvTABLE.Columns["TABLE_NAME"].FillWeight = 80;
+                gvTABLE.Columns["TABLE_COMMENT"].FillWeight = 140;
+                gvTABLE.Columns["NUM_ROWS"].FillWeight = 70;
             }
             else
             {
+                gvTABLE.DataSource = null;
+                gvColumn.DataSource = null;
+                txtRDB_Name.Text = string.Empty;
+
                 MaterialMessageBox.Show("DB에 등록된 테이블이 존재하지 않습니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
@@ -273,6 +348,7 @@ namespace CodeMaker
             AppConfigHelper.SetAppConfig("SAM_ROW_CNT", txtSample_Cnt.Text);
             AppConfigHelper.SetAppConfig("SAVEFILE_DIR", txtDIR.Text);
         }
+
 
 
 
