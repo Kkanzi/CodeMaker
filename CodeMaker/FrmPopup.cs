@@ -17,7 +17,8 @@ namespace CodeMaker
     {
         private string strComment = string.Empty;
         private CGCOMMON csg = null;
-        private string strTabelName = string.Empty;
+        private string strTableName = string.Empty;
+        private string strColumnName = string.Empty;
 
         public string OutComment;
 
@@ -31,8 +32,18 @@ namespace CodeMaker
             InitializeComponent();
 
             csg = cg;
-            strTabelName = tablename;
+            strTableName = tablename;
             strComment = value;
+        }
+
+        public FrmPopup(CGCOMMON cg, string tablename, string columnname, string value)
+        {
+            InitializeComponent();
+
+            csg = cg;
+            strTableName = tablename;
+            strComment = value;
+            strColumnName = columnname;
         }
 
         private void FrmPopup_Load(object sender, EventArgs e)
@@ -40,13 +51,31 @@ namespace CodeMaker
             txtBOX.Text = strComment;
         }
 
-        private void Save()
+        private void SaveTable()
         {
             try
             {
                 OutComment = txtBOX.Text;
 
-                if (csg.SetTableComment(DBKind.MSSQL, strTabelName, txtBOX.Text) != 0)
+                if (csg.SetTableComment(DBKind.MSSQL, strTableName, txtBOX.Text) != 0)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+            }
+        }
+
+        private void SaveColumn()
+        {
+            try
+            {
+                OutComment = txtBOX.Text;
+
+                if (csg.SetColumnsComment(DBKind.MSSQL, strTableName, strColumnName, txtBOX.Text) != 0)
                 {
                     this.DialogResult = DialogResult.OK;
                     this.Close();
@@ -60,7 +89,15 @@ namespace CodeMaker
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Save();
+            if (string.IsNullOrEmpty(strColumnName))
+            {
+                SaveTable();
+            }
+            else
+            {
+                SaveColumn();
+            }
+            
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -73,7 +110,14 @@ namespace CodeMaker
         {
             if (e.KeyCode == Keys.Enter)
             {
-                Save();
+                if (string.IsNullOrEmpty(strColumnName))
+                {
+                    SaveTable();
+                }
+                else
+                {
+                    SaveColumn();
+                }
             }
         }
     }

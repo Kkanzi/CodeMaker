@@ -47,18 +47,18 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gvColumn = new System.Windows.Forms.DataGridView();
+            this.COLUMN_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COLUMN_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.COLUMN_COMMENTS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DATA_TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NULLABLE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gvSample = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.gvIndexMaster = new System.Windows.Forms.DataGridView();
+            this.gvIndexDetail = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -125,12 +125,9 @@
             this.materialCheckbox12 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox13 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox14 = new MaterialSkin.Controls.MaterialCheckbox();
-            this.COLUMN_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COLUMN_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.COLUMN_COMMENTS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DATA_TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NULLABLE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.INDEX_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.INDEX_TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FILES = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialTabControl1.SuspendLayout();
             this.tabTABLE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -144,14 +141,14 @@
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvColumn)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSample)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvIndexMaster)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvIndexDetail)).BeginInit();
             this.panel6.SuspendLayout();
             this.tabSQL.SuspendLayout();
             this.tabSCRIPT.SuspendLayout();
@@ -377,10 +374,58 @@
             this.gvColumn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvColumn.Size = new System.Drawing.Size(580, 555);
             this.gvColumn.TabIndex = 3;
+            this.gvColumn.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvColumn_CellDoubleClick);
+            // 
+            // COLUMN_ID
+            // 
+            this.COLUMN_ID.DataPropertyName = "COLUMN_ID";
+            this.COLUMN_ID.HeaderText = "SEQ";
+            this.COLUMN_ID.Name = "COLUMN_ID";
+            this.COLUMN_ID.ReadOnly = true;
+            this.COLUMN_ID.Width = 40;
+            // 
+            // PK
+            // 
+            this.PK.DataPropertyName = "PK";
+            this.PK.HeaderText = "PK";
+            this.PK.Name = "PK";
+            this.PK.ReadOnly = true;
+            this.PK.Width = 40;
+            // 
+            // COLUMN_NAME
+            // 
+            this.COLUMN_NAME.DataPropertyName = "COLUMN_NAME";
+            this.COLUMN_NAME.HeaderText = "컬럼명";
+            this.COLUMN_NAME.Name = "COLUMN_NAME";
+            this.COLUMN_NAME.ReadOnly = true;
+            this.COLUMN_NAME.Width = 120;
+            // 
+            // COLUMN_COMMENTS
+            // 
+            this.COLUMN_COMMENTS.DataPropertyName = "COLUMN_COMMENTS";
+            this.COLUMN_COMMENTS.HeaderText = "주석";
+            this.COLUMN_COMMENTS.Name = "COLUMN_COMMENTS";
+            this.COLUMN_COMMENTS.ReadOnly = true;
+            this.COLUMN_COMMENTS.Width = 160;
+            // 
+            // DATA_TYPE
+            // 
+            this.DATA_TYPE.DataPropertyName = "DATA_TYPE";
+            this.DATA_TYPE.HeaderText = "데이터 타입";
+            this.DATA_TYPE.Name = "DATA_TYPE";
+            this.DATA_TYPE.ReadOnly = true;
+            // 
+            // NULLABLE
+            // 
+            this.NULLABLE.DataPropertyName = "NULLABLE";
+            this.NULLABLE.HeaderText = "NULL";
+            this.NULLABLE.Name = "NULLABLE";
+            this.NULLABLE.ReadOnly = true;
+            this.NULLABLE.Width = 60;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.dataGridView2);
+            this.tabPage2.Controls.Add(this.gvSample);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -389,48 +434,20 @@
             this.tabPage2.Text = "SampleData";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // gvSample
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(580, 555);
-            this.dataGridView2.TabIndex = 3;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "TABLE_NAME";
-            this.dataGridViewTextBoxColumn4.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn4.HeaderText = "테이블 명";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "TABLE_COMMENT";
-            this.dataGridViewTextBoxColumn5.FillWeight = 140F;
-            this.dataGridViewTextBoxColumn5.HeaderText = "주석";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "NUM_ROWS";
-            this.dataGridViewTextBoxColumn6.FillWeight = 70F;
-            this.dataGridViewTextBoxColumn6.HeaderText = "행수";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.gvSample.AllowUserToAddRows = false;
+            this.gvSample.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.gvSample.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            this.gvSample.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvSample.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gvSample.Location = new System.Drawing.Point(3, 3);
+            this.gvSample.Name = "gvSample";
+            this.gvSample.ReadOnly = true;
+            this.gvSample.RowTemplate.Height = 23;
+            this.gvSample.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvSample.Size = new System.Drawing.Size(580, 555);
+            this.gvSample.TabIndex = 3;
             // 
             // tabPage3
             // 
@@ -451,76 +468,53 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.dataGridView3);
+            this.splitContainer2.Panel1.Controls.Add(this.gvIndexMaster);
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.dataGridView4);
+            this.splitContainer2.Panel2.Controls.Add(this.gvIndexDetail);
             this.splitContainer2.Size = new System.Drawing.Size(586, 561);
             this.splitContainer2.SplitterDistance = 195;
             this.splitContainer2.TabIndex = 0;
             // 
-            // dataGridView3
+            // gvIndexMaster
             // 
-            this.dataGridView3.AllowUserToAddRows = false;
-            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView3.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.RowTemplate.Height = 23;
-            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(586, 195);
-            this.dataGridView3.TabIndex = 3;
+            this.gvIndexMaster.AllowUserToAddRows = false;
+            this.gvIndexMaster.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.gvIndexMaster.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            this.gvIndexMaster.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvIndexMaster.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.INDEX_NAME,
+            this.INDEX_TYPE,
+            this.FILES});
+            this.gvIndexMaster.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gvIndexMaster.Location = new System.Drawing.Point(0, 0);
+            this.gvIndexMaster.Name = "gvIndexMaster";
+            this.gvIndexMaster.ReadOnly = true;
+            this.gvIndexMaster.RowTemplate.Height = 23;
+            this.gvIndexMaster.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvIndexMaster.Size = new System.Drawing.Size(586, 195);
+            this.gvIndexMaster.TabIndex = 3;
+            this.gvIndexMaster.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvIndexMaster_CellClick);
             // 
-            // dataGridViewTextBoxColumn7
+            // gvIndexDetail
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "TABLE_NAME";
-            this.dataGridViewTextBoxColumn7.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn7.HeaderText = "테이블 명";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "TABLE_COMMENT";
-            this.dataGridViewTextBoxColumn8.FillWeight = 140F;
-            this.dataGridViewTextBoxColumn8.HeaderText = "주석";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "NUM_ROWS";
-            this.dataGridViewTextBoxColumn9.FillWeight = 70F;
-            this.dataGridViewTextBoxColumn9.HeaderText = "행수";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.AllowUserToAddRows = false;
-            this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView4.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gvIndexDetail.AllowUserToAddRows = false;
+            this.gvIndexDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.gvIndexDetail.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            this.gvIndexDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvIndexDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12});
-            this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView4.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.RowTemplate.Height = 23;
-            this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(586, 362);
-            this.dataGridView4.TabIndex = 3;
+            this.gvIndexDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gvIndexDetail.Location = new System.Drawing.Point(0, 0);
+            this.gvIndexDetail.Name = "gvIndexDetail";
+            this.gvIndexDetail.ReadOnly = true;
+            this.gvIndexDetail.RowTemplate.Height = 23;
+            this.gvIndexDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvIndexDetail.Size = new System.Drawing.Size(586, 362);
+            this.gvIndexDetail.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn10
             // 
@@ -529,6 +523,7 @@
             this.dataGridViewTextBoxColumn10.HeaderText = "테이블 명";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 82;
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -537,6 +532,7 @@
             this.dataGridViewTextBoxColumn11.HeaderText = "주석";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 54;
             // 
             // dataGridViewTextBoxColumn12
             // 
@@ -545,6 +541,7 @@
             this.dataGridViewTextBoxColumn12.HeaderText = "행수";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Width = 54;
             // 
             // panel6
             // 
@@ -1405,52 +1402,32 @@
             this.materialCheckbox14.Text = "materialCheckbox14";
             this.materialCheckbox14.UseVisualStyleBackColor = true;
             // 
-            // COLUMN_ID
+            // INDEX_NAME
             // 
-            this.COLUMN_ID.DataPropertyName = "COLUMN_ID";
-            this.COLUMN_ID.HeaderText = "SEQ";
-            this.COLUMN_ID.Name = "COLUMN_ID";
-            this.COLUMN_ID.ReadOnly = true;
-            this.COLUMN_ID.Width = 60;
+            this.INDEX_NAME.DataPropertyName = "INDEX_NAME";
+            this.INDEX_NAME.FillWeight = 80F;
+            this.INDEX_NAME.HeaderText = "인덱스 이름";
+            this.INDEX_NAME.Name = "INDEX_NAME";
+            this.INDEX_NAME.ReadOnly = true;
+            this.INDEX_NAME.Width = 94;
             // 
-            // PK
+            // INDEX_TYPE
             // 
-            this.PK.DataPropertyName = "PK";
-            this.PK.HeaderText = "PK";
-            this.PK.Name = "PK";
-            this.PK.ReadOnly = true;
-            this.PK.Width = 60;
+            this.INDEX_TYPE.DataPropertyName = "INDEX_TYPE";
+            this.INDEX_TYPE.FillWeight = 140F;
+            this.INDEX_TYPE.HeaderText = "인덱스 종류";
+            this.INDEX_TYPE.Name = "INDEX_TYPE";
+            this.INDEX_TYPE.ReadOnly = true;
+            this.INDEX_TYPE.Width = 94;
             // 
-            // COLUMN_NAME
+            // FILES
             // 
-            this.COLUMN_NAME.DataPropertyName = "COLUMN_NAME";
-            this.COLUMN_NAME.HeaderText = "컬럼명";
-            this.COLUMN_NAME.Name = "COLUMN_NAME";
-            this.COLUMN_NAME.ReadOnly = true;
-            this.COLUMN_NAME.Width = 120;
-            // 
-            // COLUMN_COMMENTS
-            // 
-            this.COLUMN_COMMENTS.DataPropertyName = "COLUMN_COMMENTS";
-            this.COLUMN_COMMENTS.HeaderText = "주석";
-            this.COLUMN_COMMENTS.Name = "COLUMN_COMMENTS";
-            this.COLUMN_COMMENTS.ReadOnly = true;
-            this.COLUMN_COMMENTS.Width = 200;
-            // 
-            // DATA_TYPE
-            // 
-            this.DATA_TYPE.DataPropertyName = "DATA_TYPE";
-            this.DATA_TYPE.HeaderText = "데이터 타입";
-            this.DATA_TYPE.Name = "DATA_TYPE";
-            this.DATA_TYPE.ReadOnly = true;
-            // 
-            // NULLABLE
-            // 
-            this.NULLABLE.DataPropertyName = "NULLABLE";
-            this.NULLABLE.HeaderText = "NULL";
-            this.NULLABLE.Name = "NULLABLE";
-            this.NULLABLE.ReadOnly = true;
-            this.NULLABLE.Width = 60;
+            this.FILES.DataPropertyName = "FILES";
+            this.FILES.FillWeight = 70F;
+            this.FILES.HeaderText = "파일";
+            this.FILES.Name = "FILES";
+            this.FILES.ReadOnly = true;
+            this.FILES.Width = 54;
             // 
             // frmMain
             // 
@@ -1481,14 +1458,14 @@
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvColumn)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvSample)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvIndexMaster)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvIndexDetail)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.tabSQL.ResumeLayout(false);
@@ -1591,16 +1568,10 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView gvColumn;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridView gvSample;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView gvIndexMaster;
+        private System.Windows.Forms.DataGridView gvIndexDetail;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
@@ -1610,6 +1581,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn COLUMN_COMMENTS;
         private System.Windows.Forms.DataGridViewTextBoxColumn DATA_TYPE;
         private System.Windows.Forms.DataGridViewTextBoxColumn NULLABLE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn INDEX_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn INDEX_TYPE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FILES;
     }
 }
 

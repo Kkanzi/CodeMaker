@@ -55,8 +55,10 @@ namespace CodeMaker
         {
             try
             {
-                //숫자만 입력되도록 필터링             
-                if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))    //숫자와 백스페이스를 제외한 나머지를 바로 처리             
+                //숫자만 입력되도록 필터링   
+                System.Globalization.CultureInfo c = System.Globalization.CultureInfo.CurrentUICulture;
+                char dot = (char)c.NumberFormat.NumberDecimalSeparator[0];
+                if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back) || e.KeyChar == dot))    //숫자와 백스페이스를 제외한 나머지를 바로 처리             
                 {
                     e.Handled = true;
                 }
@@ -110,12 +112,6 @@ namespace CodeMaker
         {
             try
             {
-                if (gc != null)
-                {
-                    MaterialMessageBox.Show("이미 연결되었습니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-
                 if (string.IsNullOrEmpty(txtIP.Text.Trim()))
                 {
                     MaterialMessageBox.Show("IP를 입력해주시기 바랍니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -209,7 +205,8 @@ namespace CodeMaker
                     FrmPopup frm = new FrmPopup(gc, strTableName, strComment);
                     if (frm.ShowDialog() == DialogResult.OK)
                     {
-                        TableSearch();
+                        //TableSearch();
+                        gvTABLE.Rows[e.RowIndex].Cells["TABLE_COMMENT"].Value = frm.OutComment;
                         //frm.OutComment
                     }
                 }
@@ -221,6 +218,7 @@ namespace CodeMaker
             
         }
 
+
         private void gvTABLE_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -229,28 +227,57 @@ namespace CodeMaker
                 {
                     string strTableName = gvTABLE.Rows[e.RowIndex].Cells["TABLE_NAME"].Value.ToString();
 
+                    #region COLUMN GRID
                     DataTable dt = gc.GetColumnInfoMSSQL(strTableName);
+
+                    if (dt.Columns.Contains("TABLE_SCHEMA"))
+                        dt.Columns.Remove("TABLE_SCHEMA");
+
+                    if (dt.Columns.Contains("TABLE_CATALOG"))
+                        dt.Columns.Remove("TABLE_CATALOG");
+
+                    if (dt.Columns.Contains("TABLE_COMMENTS"))
+                        dt.Columns.Remove("TABLE_COMMENTS");
+
+                    if (dt.Columns.Contains("COLUMN_NAME_LEN"))
+                        dt.Columns.Remove("COLUMN_NAME_LEN");
+
+                    if (dt.Columns.Contains("COLUMN_NAME_MAX_LEN"))
+                        dt.Columns.Remove("COLUMN_NAME_MAX_LEN");
+
+                    if (dt.Columns.Contains("COLUMN_ID_MAX"))
+                        dt.Columns.Remove("COLUMN_ID_MAX");
+
+                    if (dt.Columns.Contains("DATA_LENGTH"))
+                        dt.Columns.Remove("DATA_LENGTH");
+
+                    if (dt.Columns.Contains("DATA_PRECISION"))
+                        dt.Columns.Remove("DATA_PRECISION");
+
+                    if (dt.Columns.Contains("DATA_SCALE"))
+                        dt.Columns.Remove("DATA_SCALE");
+
+                    if (dt.Columns.Contains("DATA_LEN_STR"))
+                        dt.Columns.Remove("DATA_LEN_STR");
+
+                    if (dt.Columns.Contains("COLUMN_NAME_MAX_LEN_PK"))
+                        dt.Columns.Remove("COLUMN_NAME_MAX_LEN_PK");
+
+                    if (dt.Columns.Contains("PK_SEQ"))
+                        dt.Columns.Remove("PK_SEQ");
+
+                    if (dt.Columns.Contains("DATA_TYPE_MAX"))
+                        dt.Columns.Remove("DATA_TYPE_MAX");
+
+                    if (dt.Columns.Contains("DATA_LEN_STR_MAX"))
+                        dt.Columns.Remove("DATA_LEN_STR_MAX");
 
                     if (dt.Rows.Count > 0)
                     {
                         gvColumn.DataSource = dt;
 
-                        gvColumn.Columns["TABLE_SCHEMA"].Visible = false;
-                        gvColumn.Columns["TABLE_CATALOG"].Visible = false;
                         gvColumn.Columns["TABLE_NAME"].Visible = false;
-                        gvColumn.Columns["TABLE_COMMENTS"].Visible = false;
-                        gvColumn.Columns["COLUMN_NAME_LEN"].Visible = false;
-                        gvColumn.Columns["COLUMN_NAME_MAX_LEN"].Visible = false;
-                        gvColumn.Columns["COLUMN_ID_MAX"].Visible = false;
-                        gvColumn.Columns["DATA_LENGTH"].Visible = false;
-                        gvColumn.Columns["DATA_PRECISION"].Visible = false;
-                        gvColumn.Columns["DATA_SCALE"].Visible = false;
-                        gvColumn.Columns["DATA_LEN_STR"].Visible = false;
-                        gvColumn.Columns["COLUMN_NAME_MAX_LEN_PK"].Visible = false;
-                        gvColumn.Columns["PK_SEQ"].Visible = false;
-                        gvColumn.Columns["DATA_TYPE_MAX"].Visible = false;
-                        gvColumn.Columns["DATA_LEN_STR_MAX"].Visible = false;
-                        
+
                         txtRDB_Name.Text = strTableName;
                     }
                     else
@@ -259,6 +286,27 @@ namespace CodeMaker
                         txtRDB_Name.Text = string.Empty;
                         MaterialMessageBox.Show("테이블에 등록된 컬럼이 존재하지 않습니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+                    #endregion
+
+                    #region SAMPLEDATA GRID
+                    DataTable dtSamp = gc.GetTableSampleData(DBKind.MSSQL, strTableName, txtSample_Cnt.Text);
+                    
+                    if (dtSamp.Rows.Count > 0)
+                        gvSample.DataSource = dtSamp;
+
+                    #endregion
+
+                    #region INDEX MASTER GRID
+                    DataTable dtIndexMaster = gc.GetIndexInfo(DBKind.MSSQL, strTableName);
+
+                    if (dtIndexMaster.Rows.Count > 0)
+                    {
+                        gvIndexMaster.DataSource = dtIndexMaster;
+                        gvIndexMaster.Columns["TABLE_NAME"].Visible = false;
+                    }
+                        
+
+                    #endregion
                 }
             }
             catch (Exception ex)
@@ -266,6 +314,54 @@ namespace CodeMaker
                 PrintLog(ex);
             }
         }
+
+        private void gvIndexMaster_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (gvIndexMaster.Rows.Count > 0)
+                {
+                    string idxName = gvIndexMaster.Rows[e.RowIndex].Cells["INDEX_NAME"].Value.ToString();
+                    string tableName = gvIndexMaster.Rows[e.RowIndex].Cells["TABLE_NAME"].Value.ToString();
+
+                    DataTable dtIndexDetail = gc.GetIndexConInfo(DBKind.MSSQL, tableName, idxName);
+
+                    gvIndexDetail.DataSource = dtIndexDetail;
+                }
+            }
+            catch (Exception ex)
+            {
+                PrintLog(ex);
+            }   
+        }
+
+        private void gvColumn_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (gvColumn.Rows.Count > 0)
+                {
+                    string strTableName = gvColumn.Rows[e.RowIndex].Cells["TABLE_NAME"].Value.ToString();
+                    string strColumnName = gvColumn.Rows[e.RowIndex].Cells["COLUMN_NAME"].Value.ToString();
+                    string strComment = gvColumn.Rows[e.RowIndex].Cells["COLUMN_COMMENTS"].Value.ToString();
+
+                    //e.RowIndex;
+                    FrmPopup frm = new FrmPopup(gc, strTableName, strColumnName, strComment);
+                    if (frm.ShowDialog() == DialogResult.OK)
+                    {
+                        //TableSearch();
+                        gvColumn.Rows[e.RowIndex].Cells["COLUMN_COMMENTS"].Value = frm.OutComment;
+                        //frm.OutComment
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                PrintLog(ex);
+            }
+        }
+
+        
 
         #endregion
 
@@ -287,9 +383,6 @@ namespace CodeMaker
 
         private void TableSearch()
         {
-            gvTABLE.DataSource = null;
-            gvColumn.DataSource = null;
-
             if (gc == null)
             {
                 MaterialMessageBox.Show("먼저 DB Connect를 해주시기바랍니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -299,17 +392,25 @@ namespace CodeMaker
             DataTable dt = new DataTable();
             dt = gc.GetDBTableList(DBKind.MSSQL, txtTB_NAME.Text, txtTB_DESC.Text);
 
+            if (dt.Columns.Contains("TABLE_CATALOG"))
+                dt.Columns.Remove("TABLE_CATALOG");
+
+            if (dt.Columns.Contains("TABLE_SCHEMA"))
+                dt.Columns.Remove("TABLE_SCHEMA");
+
+            if (dt.Columns.Contains("TABLE_TYPE"))
+                dt.Columns.Remove("TABLE_TYPE");
+
             if (dt.Rows.Count > 0)
             {
                 gvTABLE.DataSource = dt;
 
-                gvTABLE.Columns["TABLE_CATALOG"].Visible = false;
-                gvTABLE.Columns["TABLE_SCHEMA"].Visible = false;
-                gvTABLE.Columns["TABLE_TYPE"].Visible = false;
-
                 gvTABLE.Columns["TABLE_NAME"].FillWeight = 80;
                 gvTABLE.Columns["TABLE_COMMENT"].FillWeight = 140;
                 gvTABLE.Columns["NUM_ROWS"].FillWeight = 70;
+
+                DataGridViewCellEventArgs a = new DataGridViewCellEventArgs(0, 0);
+                gvTABLE_CellClick(gvTABLE, a);
             }
             else
             {
@@ -348,12 +449,6 @@ namespace CodeMaker
             AppConfigHelper.SetAppConfig("SAM_ROW_CNT", txtSample_Cnt.Text);
             AppConfigHelper.SetAppConfig("SAVEFILE_DIR", txtDIR.Text);
         }
-
-
-
-
         #endregion
-
-        
     }
 }
