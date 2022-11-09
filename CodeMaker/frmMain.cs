@@ -303,6 +303,9 @@ namespace CodeMaker
                     {
                         gvIndexMaster.DataSource = dtIndexMaster;
                         gvIndexMaster.Columns["TABLE_NAME"].Visible = false;
+
+                        DataGridViewCellEventArgs a = new DataGridViewCellEventArgs(0, 0);
+                        gvIndexMaster_CellClick(gvIndexMaster, a);
                     }
                         
 
@@ -361,7 +364,17 @@ namespace CodeMaker
             }
         }
 
-        
+        private void btnCode_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                PrintLog(ex);
+            }
+        }
 
         #endregion
 
@@ -450,5 +463,7 @@ namespace CodeMaker
             AppConfigHelper.SetAppConfig("SAVEFILE_DIR", txtDIR.Text);
         }
         #endregion
+
+        
     }
 }

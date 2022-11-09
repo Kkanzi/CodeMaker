@@ -59,9 +59,6 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.gvIndexMaster = new System.Windows.Forms.DataGridView();
             this.gvIndexDetail = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnCode = new MaterialSkin.Controls.MaterialButton();
             this.txtRDB_Name = new System.Windows.Forms.TextBox();
@@ -128,6 +125,10 @@
             this.INDEX_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.INDEX_TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FILES = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SEQ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idxCOLUMN_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idxCOLUMNS_COMMENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idxCOLUMNS_DATA_TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialTabControl1.SuspendLayout();
             this.tabTABLE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -437,7 +438,6 @@
             // gvSample
             // 
             this.gvSample.AllowUserToAddRows = false;
-            this.gvSample.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.gvSample.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.gvSample.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvSample.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -480,7 +480,6 @@
             // gvIndexMaster
             // 
             this.gvIndexMaster.AllowUserToAddRows = false;
-            this.gvIndexMaster.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.gvIndexMaster.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.gvIndexMaster.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvIndexMaster.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -500,13 +499,13 @@
             // gvIndexDetail
             // 
             this.gvIndexDetail.AllowUserToAddRows = false;
-            this.gvIndexDetail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.gvIndexDetail.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.gvIndexDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvIndexDetail.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12});
+            this.SEQ,
+            this.idxCOLUMN_NAME,
+            this.idxCOLUMNS_COMMENT,
+            this.idxCOLUMNS_DATA_TYPE});
             this.gvIndexDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gvIndexDetail.Location = new System.Drawing.Point(0, 0);
             this.gvIndexDetail.Name = "gvIndexDetail";
@@ -515,33 +514,6 @@
             this.gvIndexDetail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvIndexDetail.Size = new System.Drawing.Size(586, 362);
             this.gvIndexDetail.TabIndex = 3;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "TABLE_NAME";
-            this.dataGridViewTextBoxColumn10.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn10.HeaderText = "테이블 명";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 82;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "TABLE_COMMENT";
-            this.dataGridViewTextBoxColumn11.FillWeight = 140F;
-            this.dataGridViewTextBoxColumn11.HeaderText = "주석";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 54;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "NUM_ROWS";
-            this.dataGridViewTextBoxColumn12.FillWeight = 70F;
-            this.dataGridViewTextBoxColumn12.HeaderText = "행수";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Width = 54;
             // 
             // panel6
             // 
@@ -572,6 +544,7 @@
             this.btnCode.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Text;
             this.btnCode.UseAccentColor = false;
             this.btnCode.UseVisualStyleBackColor = true;
+            this.btnCode.Click += new System.EventHandler(this.btnCode_Click);
             // 
             // txtRDB_Name
             // 
@@ -1409,7 +1382,7 @@
             this.INDEX_NAME.HeaderText = "인덱스 이름";
             this.INDEX_NAME.Name = "INDEX_NAME";
             this.INDEX_NAME.ReadOnly = true;
-            this.INDEX_NAME.Width = 94;
+            this.INDEX_NAME.Width = 160;
             // 
             // INDEX_TYPE
             // 
@@ -1418,7 +1391,7 @@
             this.INDEX_TYPE.HeaderText = "인덱스 종류";
             this.INDEX_TYPE.Name = "INDEX_TYPE";
             this.INDEX_TYPE.ReadOnly = true;
-            this.INDEX_TYPE.Width = 94;
+            this.INDEX_TYPE.Width = 140;
             // 
             // FILES
             // 
@@ -1427,7 +1400,42 @@
             this.FILES.HeaderText = "파일";
             this.FILES.Name = "FILES";
             this.FILES.ReadOnly = true;
-            this.FILES.Width = 54;
+            this.FILES.Width = 80;
+            // 
+            // SEQ
+            // 
+            this.SEQ.DataPropertyName = "SEQ";
+            this.SEQ.FillWeight = 80F;
+            this.SEQ.HeaderText = "순번";
+            this.SEQ.Name = "SEQ";
+            this.SEQ.ReadOnly = true;
+            this.SEQ.Width = 60;
+            // 
+            // idxCOLUMN_NAME
+            // 
+            this.idxCOLUMN_NAME.DataPropertyName = "COLUMN_NAME";
+            this.idxCOLUMN_NAME.FillWeight = 140F;
+            this.idxCOLUMN_NAME.HeaderText = "컬럼 이름";
+            this.idxCOLUMN_NAME.Name = "idxCOLUMN_NAME";
+            this.idxCOLUMN_NAME.ReadOnly = true;
+            this.idxCOLUMN_NAME.Width = 180;
+            // 
+            // idxCOLUMNS_COMMENT
+            // 
+            this.idxCOLUMNS_COMMENT.DataPropertyName = "COLUMNS_COMMENT";
+            this.idxCOLUMNS_COMMENT.FillWeight = 70F;
+            this.idxCOLUMNS_COMMENT.HeaderText = "컬럼 주석";
+            this.idxCOLUMNS_COMMENT.Name = "idxCOLUMNS_COMMENT";
+            this.idxCOLUMNS_COMMENT.ReadOnly = true;
+            this.idxCOLUMNS_COMMENT.Width = 180;
+            // 
+            // idxCOLUMNS_DATA_TYPE
+            // 
+            this.idxCOLUMNS_DATA_TYPE.DataPropertyName = "COLUMNS_DATA_TYPE";
+            this.idxCOLUMNS_DATA_TYPE.HeaderText = "컬럼타입";
+            this.idxCOLUMNS_DATA_TYPE.Name = "idxCOLUMNS_DATA_TYPE";
+            this.idxCOLUMNS_DATA_TYPE.ReadOnly = true;
+            this.idxCOLUMNS_DATA_TYPE.Width = 80;
             // 
             // frmMain
             // 
@@ -1572,9 +1580,6 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.DataGridView gvIndexMaster;
         private System.Windows.Forms.DataGridView gvIndexDetail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn COLUMN_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PK;
         private System.Windows.Forms.DataGridViewTextBoxColumn COLUMN_NAME;
@@ -1584,6 +1589,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn INDEX_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn INDEX_TYPE;
         private System.Windows.Forms.DataGridViewTextBoxColumn FILES;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SEQ;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idxCOLUMN_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idxCOLUMNS_COMMENT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idxCOLUMNS_DATA_TYPE;
     }
 }
 
