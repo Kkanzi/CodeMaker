@@ -134,7 +134,8 @@ namespace KJHCore
           LANG inLang,
           string prefix,
           string affix,
-          string DBname)
+          string DBname,
+          string UserName)
         {
             this.OracleConStr = OracleConnectionString;
             this.MssqlConStr = MsqlConnectionString;
@@ -146,6 +147,7 @@ namespace KJHCore
             this._createSP_Bdiv = prefix;
             this._createSP_Mdiv = affix;
             this._table_Catalog = DBname;
+            this._userName = UserName;
         }
 
         public string GetSelectSql(string tblINm, DataTable inDt, string condition, bool boolPlsql)
@@ -1533,9 +1535,9 @@ namespace KJHCore
             string empty3 = string.Empty;
             string spComment;
             if (this._lang == LANG.KOR)
-                spComment = empty3 + "\r\n/******************************************************************************************" + "\r\n  1. 프로시져명  :  " + this.CreateSP_BDiv + "_" + this.CreateSP_MDiv + "_" + empty2 + "\r\n  2. 제목(기능)  : " + inDt.Rows[0]["TABLE_COMMENTS"].ToString() + " " + empty1 + "\r\n  3. 작  성  일  : " + DateTime.Now.ToString("yyyy-MM-dd") + "\r\n  4. 작  성  자  : (주)동서정보기술" + "\r\n  5. 적용Program :  " + string.Empty + "\r\n*******************************************************************************************" + "\r\n  6. 수정이력      수정일         수정자         수정내역" + "\r\n                " + DateTime.Now.ToString("yyyy-MM-dd") + "    " + CGCOMMON.Col_RPad(13, this.UserName) + "생성" + "\r\n******************************************************************************************/";
+                spComment = empty3 + "\r\n/******************************************************************************************" + "\r\n  1. 프로시져명  :  " + this.CreateSP_BDiv + "_" + this.CreateSP_MDiv + "_" + empty2 + "\r\n  2. 제목(기능)  : " + inDt.Rows[0]["TABLE_COMMENTS"].ToString() + " " + empty1 + "\r\n  3. 작  성  일  : " + DateTime.Now.ToString("yyyy-MM-dd") + "\r\n  4. 작  성  자  : 강지훈" + "\r\n  5. 적용Program :  " + string.Empty + "\r\n*******************************************************************************************" + "\r\n  6. 수정이력      수정일         수정자         수정내역" + "\r\n                " + DateTime.Now.ToString("yyyy-MM-dd") + "    " + CGCOMMON.Col_RPad(13, this.UserName) + "생성" + "\r\n******************************************************************************************/";
             else
-                spComment = empty3 + "\r\n/******************************************************************************************" + "\r\n  1. PROCEDURE ID   : " + this.CreateSP_BDiv + "_" + this.CreateSP_MDiv + "_" + empty2 + "\r\n  2. PROCEDURE NAME : " + inDt.Rows[0]["TABLE_COMMENTS"].ToString() + " " + empty1 + "\r\n  3. CREATED DATE   : " + DateTime.Now.ToString("yyyy-MM-dd") + "\r\n  4. MADE BY        : DongSeo IT.Co.LTD" + "\r\n  5. USED PROGRAM   : " + string.Empty + "\r\n*******************************************************************************************" + "\r\n  6. HISTORY          DATE         NAME         DESCRIPTION" + "\r\n                      " + DateTime.Now.ToString("yyyy-MM-dd") + "   " + CGCOMMON.Col_RPad(10, this.UserName) + "CREATE" + "\r\n******************************************************************************************/";
+                spComment = empty3 + "\r\n/******************************************************************************************" + "\r\n  1. PROCEDURE ID   : " + this.CreateSP_BDiv + "_" + this.CreateSP_MDiv + "_" + empty2 + "\r\n  2. PROCEDURE NAME : " + inDt.Rows[0]["TABLE_COMMENTS"].ToString() + " " + empty1 + "\r\n  3. CREATED DATE   : " + DateTime.Now.ToString("yyyy-MM-dd") + "\r\n  4. MADE BY        : Kang Ji Hoon" + "\r\n  5. USED PROGRAM   : " + string.Empty + "\r\n*******************************************************************************************" + "\r\n  6. HISTORY          DATE         NAME         DESCRIPTION" + "\r\n                      " + DateTime.Now.ToString("yyyy-MM-dd") + "   " + CGCOMMON.Col_RPad(10, this.UserName) + "CREATE" + "\r\n******************************************************************************************/";
             return spComment;
         }
 

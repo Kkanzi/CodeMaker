@@ -156,7 +156,7 @@ namespace CodeMaker
 
                 string MsSqlConn = $@"data source = {txtIP.Text.Trim()},{txtPORT.Text.Trim()} ; initial Catalog = {txtDB.Text.Trim()} ; user id = {txtID.Text.Trim()} ;PASSWORD = {txtPW.Text.Trim()}";
 
-                gc = new CGCOMMON(string.Empty, MsSqlConn, DBKind.MSSQL, LANG.KOR, txtSP_Prefix.Text, txtSP_Affix.Text, txtDB.Text);
+                gc = new CGCOMMON(string.Empty, MsSqlConn, DBKind.MSSQL, LANG.KOR, txtSP_Prefix.Text, txtSP_Affix.Text, txtDB.Text, txtUser_Name.Text);
 
                 TableSearch();
             }
@@ -226,6 +226,7 @@ namespace CodeMaker
                 if (gvTABLE.Rows.Count > 0)
                 {
                     string strTableName = gvTABLE.Rows[e.RowIndex].Cells["TABLE_NAME"].Value.ToString();
+                    string strTableSchema = gvTABLE.Rows[e.RowIndex].Cells["TABLE_SCHEMA"].Value.ToString();
 
                     #region COLUMN GRID
                     DataTable dt = gc.GetColumnInfoMSSQL(strTableName);
@@ -279,11 +280,13 @@ namespace CodeMaker
                         gvColumn.Columns["TABLE_NAME"].Visible = false;
 
                         txtRDB_Name.Text = strTableName;
+                        txtRDB_SCHEMA.Text = strTableSchema;
                     }
                     else
                     {
                         gvColumn.DataSource = null;
                         txtRDB_Name.Text = string.Empty;
+                        txtRDB_SCHEMA.Text = string.Empty;
                         MaterialMessageBox.Show("테이블에 등록된 컬럼이 존재하지 않습니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     #endregion
@@ -368,11 +371,78 @@ namespace CodeMaker
         {
             try
             {
+                if (!string.IsNullOrEmpty(txtRDB_Name.Text))
+                {
+                    string strTableName = txtRDB_Name.Text;
+                    string strTableSchema = txtRDB_SCHEMA.Text;
+                    string strCondition = "A";
+                    materialTabControl1.SelectTab("tabSQL");
 
+                    if (chkSel_Q.Checked)
+                    {
+                        txtSELECT_Q.Text = gc.GetSelectSql(strTableName, gc.GetColumnInfoMSSQL(strTableName), strCondition, false);
+                    }
+
+                    if (chkIns_Q.Checked)
+                    {
+                        txtINSERT_Q.Text = gc.GetInsertSql(strTableName, gc.GetColumnInfoMSSQL(strTableName), false);
+                    }
+
+                    if (chkUpd_Q.Checked)
+                    {
+                        txtUPDATE_Q.Text = gc.GetUpdateSql(strTableName, gc.GetColumnInfoMSSQL(strTableName), false);
+                    }
+
+                    if (chkDel_Q.Checked)
+                    {
+                        txtDELETE_Q.Text = gc.GetDeleteSql(strTableName, gc.GetColumnInfoMSSQL(strTableName), false);
+                    }
+
+                    if (chkMer_Q.Checked)
+                    {
+                        txtMERGE_Q.Text = gc.GetMergeSql(strTableName, gc.GetColumnInfoMSSQL(strTableName), false);
+                    }
+
+                    if (chkSel_P.Checked)
+                    {
+                        txtSELECT_P.Text = gc.GetSelectSqlP(strTableName, gc.GetColumnInfoMSSQL(strTableName), strCondition);
+                    }
+
+                    if (chkIns_P.Checked)
+                    {
+                        txtINSERT_P.Text = gc.GetInsertSqlP(strTableName, gc.GetColumnInfoMSSQL(strTableName));
+                    }
+
+                    if (chkUpd_P.Checked)
+                    {
+                        txtUPDATE_P.Text = gc.GetUpdateSqlP(strTableName, gc.GetColumnInfoMSSQL(strTableName));
+                    }
+
+                    if (chkDel_P.Checked)
+                    {
+                        txtDELETE_P.Text = gc.GetDeleteSqlP(strTableName, gc.GetColumnInfoMSSQL(strTableName));
+                    }
+
+                    if (chkMer_P.Checked)
+                    {
+                        txtMERGE_P.Text = gc.GetMergeSqlP(strTableName, gc.GetColumnInfoMSSQL(strTableName));
+                    }
+
+
+
+                }
             }
             catch (Exception ex)
             {
                 PrintLog(ex);
+            }
+        }
+
+        private void txtRDB_Name_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.A)
+            {
+                txtRDB_Name.SelectAll();
             }
         }
 
@@ -408,8 +478,8 @@ namespace CodeMaker
             if (dt.Columns.Contains("TABLE_CATALOG"))
                 dt.Columns.Remove("TABLE_CATALOG");
 
-            if (dt.Columns.Contains("TABLE_SCHEMA"))
-                dt.Columns.Remove("TABLE_SCHEMA");
+            //if (dt.Columns.Contains("TABLE_SCHEMA"))
+            //    dt.Columns.Remove("TABLE_SCHEMA");
 
             if (dt.Columns.Contains("TABLE_TYPE"))
                 dt.Columns.Remove("TABLE_TYPE");
@@ -417,6 +487,8 @@ namespace CodeMaker
             if (dt.Rows.Count > 0)
             {
                 gvTABLE.DataSource = dt;
+
+                gvTABLE.Columns["TABLE_SCHEMA"].Visible = false;
 
                 gvTABLE.Columns["TABLE_NAME"].FillWeight = 80;
                 gvTABLE.Columns["TABLE_COMMENT"].FillWeight = 140;
@@ -462,6 +534,7 @@ namespace CodeMaker
             AppConfigHelper.SetAppConfig("SAM_ROW_CNT", txtSample_Cnt.Text);
             AppConfigHelper.SetAppConfig("SAVEFILE_DIR", txtDIR.Text);
         }
+
         #endregion
 
         

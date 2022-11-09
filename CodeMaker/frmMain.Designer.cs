@@ -129,6 +129,28 @@
             this.idxCOLUMN_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idxCOLUMNS_COMMENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idxCOLUMNS_DATA_TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabQUERY = new System.Windows.Forms.TabControl();
+            this.SELECT_Q = new System.Windows.Forms.TabPage();
+            this.INSERT_Q = new System.Windows.Forms.TabPage();
+            this.UPDATE_Q = new System.Windows.Forms.TabPage();
+            this.DELETE_Q = new System.Windows.Forms.TabPage();
+            this.MERGE_Q = new System.Windows.Forms.TabPage();
+            this.SELECT_P = new System.Windows.Forms.TabPage();
+            this.INSERT_P = new System.Windows.Forms.TabPage();
+            this.UPDATE_P = new System.Windows.Forms.TabPage();
+            this.DELETE_P = new System.Windows.Forms.TabPage();
+            this.MERGE_P = new System.Windows.Forms.TabPage();
+            this.txtSELECT_Q = new System.Windows.Forms.TextBox();
+            this.txtINSERT_Q = new System.Windows.Forms.TextBox();
+            this.txtUPDATE_Q = new System.Windows.Forms.TextBox();
+            this.txtDELETE_Q = new System.Windows.Forms.TextBox();
+            this.txtMERGE_Q = new System.Windows.Forms.TextBox();
+            this.txtSELECT_P = new System.Windows.Forms.TextBox();
+            this.txtINSERT_P = new System.Windows.Forms.TextBox();
+            this.txtUPDATE_P = new System.Windows.Forms.TextBox();
+            this.txtDELETE_P = new System.Windows.Forms.TextBox();
+            this.txtMERGE_P = new System.Windows.Forms.TextBox();
+            this.txtRDB_SCHEMA = new System.Windows.Forms.TextBox();
             this.materialTabControl1.SuspendLayout();
             this.tabTABLE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -152,6 +174,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvIndexDetail)).BeginInit();
             this.panel6.SuspendLayout();
             this.tabSQL.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tabSCRIPT.SuspendLayout();
             this.tabLOG.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -159,6 +182,17 @@
             this.grpInfo.SuspendLayout();
             this.panel5.SuspendLayout();
             this.grpSetup.SuspendLayout();
+            this.tabQUERY.SuspendLayout();
+            this.SELECT_Q.SuspendLayout();
+            this.INSERT_Q.SuspendLayout();
+            this.UPDATE_Q.SuspendLayout();
+            this.DELETE_Q.SuspendLayout();
+            this.MERGE_Q.SuspendLayout();
+            this.SELECT_P.SuspendLayout();
+            this.INSERT_P.SuspendLayout();
+            this.UPDATE_P.SuspendLayout();
+            this.DELETE_P.SuspendLayout();
+            this.MERGE_P.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -517,6 +551,7 @@
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.txtRDB_SCHEMA);
             this.panel6.Controls.Add(this.btnCode);
             this.panel6.Controls.Add(this.txtRDB_Name);
             this.panel6.Controls.Add(this.label2);
@@ -553,11 +588,12 @@
             this.txtRDB_Name.ReadOnly = true;
             this.txtRDB_Name.Size = new System.Drawing.Size(211, 21);
             this.txtRDB_Name.TabIndex = 9;
+            this.txtRDB_Name.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtRDB_Name_KeyDown);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(127, 11);
+            this.label2.Location = new System.Drawing.Point(77, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 12);
             this.label2.TabIndex = 8;
@@ -578,6 +614,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.tabQUERY);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
@@ -1437,6 +1474,234 @@
             this.idxCOLUMNS_DATA_TYPE.ReadOnly = true;
             this.idxCOLUMNS_DATA_TYPE.Width = 80;
             // 
+            // tabQUERY
+            // 
+            this.tabQUERY.Controls.Add(this.SELECT_Q);
+            this.tabQUERY.Controls.Add(this.INSERT_Q);
+            this.tabQUERY.Controls.Add(this.UPDATE_Q);
+            this.tabQUERY.Controls.Add(this.DELETE_Q);
+            this.tabQUERY.Controls.Add(this.MERGE_Q);
+            this.tabQUERY.Controls.Add(this.SELECT_P);
+            this.tabQUERY.Controls.Add(this.INSERT_P);
+            this.tabQUERY.Controls.Add(this.UPDATE_P);
+            this.tabQUERY.Controls.Add(this.DELETE_P);
+            this.tabQUERY.Controls.Add(this.MERGE_P);
+            this.tabQUERY.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabQUERY.Location = new System.Drawing.Point(0, 0);
+            this.tabQUERY.Name = "tabQUERY";
+            this.tabQUERY.SelectedIndex = 0;
+            this.tabQUERY.Size = new System.Drawing.Size(1136, 631);
+            this.tabQUERY.TabIndex = 0;
+            // 
+            // SELECT_Q
+            // 
+            this.SELECT_Q.Controls.Add(this.txtSELECT_Q);
+            this.SELECT_Q.Location = new System.Drawing.Point(4, 22);
+            this.SELECT_Q.Name = "SELECT_Q";
+            this.SELECT_Q.Padding = new System.Windows.Forms.Padding(3);
+            this.SELECT_Q.Size = new System.Drawing.Size(1128, 605);
+            this.SELECT_Q.TabIndex = 1;
+            this.SELECT_Q.Text = "Select Query";
+            this.SELECT_Q.UseVisualStyleBackColor = true;
+            // 
+            // INSERT_Q
+            // 
+            this.INSERT_Q.Controls.Add(this.txtINSERT_Q);
+            this.INSERT_Q.Location = new System.Drawing.Point(4, 22);
+            this.INSERT_Q.Name = "INSERT_Q";
+            this.INSERT_Q.Size = new System.Drawing.Size(1128, 605);
+            this.INSERT_Q.TabIndex = 2;
+            this.INSERT_Q.Text = "Insert Query";
+            this.INSERT_Q.UseVisualStyleBackColor = true;
+            // 
+            // UPDATE_Q
+            // 
+            this.UPDATE_Q.Controls.Add(this.txtUPDATE_Q);
+            this.UPDATE_Q.Location = new System.Drawing.Point(4, 22);
+            this.UPDATE_Q.Name = "UPDATE_Q";
+            this.UPDATE_Q.Size = new System.Drawing.Size(1128, 605);
+            this.UPDATE_Q.TabIndex = 3;
+            this.UPDATE_Q.Text = "Update Query";
+            this.UPDATE_Q.UseVisualStyleBackColor = true;
+            // 
+            // DELETE_Q
+            // 
+            this.DELETE_Q.Controls.Add(this.txtDELETE_Q);
+            this.DELETE_Q.Location = new System.Drawing.Point(4, 22);
+            this.DELETE_Q.Name = "DELETE_Q";
+            this.DELETE_Q.Size = new System.Drawing.Size(1128, 605);
+            this.DELETE_Q.TabIndex = 4;
+            this.DELETE_Q.Text = "Delete Query";
+            this.DELETE_Q.UseVisualStyleBackColor = true;
+            // 
+            // MERGE_Q
+            // 
+            this.MERGE_Q.Controls.Add(this.txtMERGE_Q);
+            this.MERGE_Q.Location = new System.Drawing.Point(4, 22);
+            this.MERGE_Q.Name = "MERGE_Q";
+            this.MERGE_Q.Size = new System.Drawing.Size(1128, 605);
+            this.MERGE_Q.TabIndex = 5;
+            this.MERGE_Q.Text = "Merge Query";
+            this.MERGE_Q.UseVisualStyleBackColor = true;
+            // 
+            // SELECT_P
+            // 
+            this.SELECT_P.Controls.Add(this.txtSELECT_P);
+            this.SELECT_P.Location = new System.Drawing.Point(4, 22);
+            this.SELECT_P.Name = "SELECT_P";
+            this.SELECT_P.Size = new System.Drawing.Size(1128, 605);
+            this.SELECT_P.TabIndex = 6;
+            this.SELECT_P.Text = "Select Proc";
+            this.SELECT_P.UseVisualStyleBackColor = true;
+            // 
+            // INSERT_P
+            // 
+            this.INSERT_P.Controls.Add(this.txtINSERT_P);
+            this.INSERT_P.Location = new System.Drawing.Point(4, 22);
+            this.INSERT_P.Name = "INSERT_P";
+            this.INSERT_P.Size = new System.Drawing.Size(1128, 605);
+            this.INSERT_P.TabIndex = 7;
+            this.INSERT_P.Text = "Insert Proc";
+            this.INSERT_P.UseVisualStyleBackColor = true;
+            // 
+            // UPDATE_P
+            // 
+            this.UPDATE_P.Controls.Add(this.txtUPDATE_P);
+            this.UPDATE_P.Location = new System.Drawing.Point(4, 22);
+            this.UPDATE_P.Name = "UPDATE_P";
+            this.UPDATE_P.Size = new System.Drawing.Size(1128, 605);
+            this.UPDATE_P.TabIndex = 8;
+            this.UPDATE_P.Text = "Update Proc";
+            this.UPDATE_P.UseVisualStyleBackColor = true;
+            // 
+            // DELETE_P
+            // 
+            this.DELETE_P.Controls.Add(this.txtDELETE_P);
+            this.DELETE_P.Location = new System.Drawing.Point(4, 22);
+            this.DELETE_P.Name = "DELETE_P";
+            this.DELETE_P.Size = new System.Drawing.Size(1128, 605);
+            this.DELETE_P.TabIndex = 9;
+            this.DELETE_P.Text = "Delete Proc";
+            this.DELETE_P.UseVisualStyleBackColor = true;
+            // 
+            // MERGE_P
+            // 
+            this.MERGE_P.Controls.Add(this.txtMERGE_P);
+            this.MERGE_P.Location = new System.Drawing.Point(4, 22);
+            this.MERGE_P.Name = "MERGE_P";
+            this.MERGE_P.Size = new System.Drawing.Size(1128, 605);
+            this.MERGE_P.TabIndex = 10;
+            this.MERGE_P.Text = "Merge Proc";
+            this.MERGE_P.UseVisualStyleBackColor = true;
+            // 
+            // txtSELECT_Q
+            // 
+            this.txtSELECT_Q.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSELECT_Q.Location = new System.Drawing.Point(3, 3);
+            this.txtSELECT_Q.Multiline = true;
+            this.txtSELECT_Q.Name = "txtSELECT_Q";
+            this.txtSELECT_Q.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtSELECT_Q.Size = new System.Drawing.Size(1122, 599);
+            this.txtSELECT_Q.TabIndex = 0;
+            // 
+            // txtINSERT_Q
+            // 
+            this.txtINSERT_Q.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtINSERT_Q.Location = new System.Drawing.Point(0, 0);
+            this.txtINSERT_Q.Multiline = true;
+            this.txtINSERT_Q.Name = "txtINSERT_Q";
+            this.txtINSERT_Q.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtINSERT_Q.Size = new System.Drawing.Size(1128, 605);
+            this.txtINSERT_Q.TabIndex = 1;
+            // 
+            // txtUPDATE_Q
+            // 
+            this.txtUPDATE_Q.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUPDATE_Q.Location = new System.Drawing.Point(0, 0);
+            this.txtUPDATE_Q.Multiline = true;
+            this.txtUPDATE_Q.Name = "txtUPDATE_Q";
+            this.txtUPDATE_Q.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtUPDATE_Q.Size = new System.Drawing.Size(1128, 605);
+            this.txtUPDATE_Q.TabIndex = 1;
+            // 
+            // txtDELETE_Q
+            // 
+            this.txtDELETE_Q.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDELETE_Q.Location = new System.Drawing.Point(0, 0);
+            this.txtDELETE_Q.Multiline = true;
+            this.txtDELETE_Q.Name = "txtDELETE_Q";
+            this.txtDELETE_Q.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtDELETE_Q.Size = new System.Drawing.Size(1128, 605);
+            this.txtDELETE_Q.TabIndex = 1;
+            // 
+            // txtMERGE_Q
+            // 
+            this.txtMERGE_Q.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMERGE_Q.Location = new System.Drawing.Point(0, 0);
+            this.txtMERGE_Q.Multiline = true;
+            this.txtMERGE_Q.Name = "txtMERGE_Q";
+            this.txtMERGE_Q.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtMERGE_Q.Size = new System.Drawing.Size(1128, 605);
+            this.txtMERGE_Q.TabIndex = 1;
+            // 
+            // txtSELECT_P
+            // 
+            this.txtSELECT_P.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSELECT_P.Location = new System.Drawing.Point(0, 0);
+            this.txtSELECT_P.Multiline = true;
+            this.txtSELECT_P.Name = "txtSELECT_P";
+            this.txtSELECT_P.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtSELECT_P.Size = new System.Drawing.Size(1128, 605);
+            this.txtSELECT_P.TabIndex = 1;
+            // 
+            // txtINSERT_P
+            // 
+            this.txtINSERT_P.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtINSERT_P.Location = new System.Drawing.Point(0, 0);
+            this.txtINSERT_P.Multiline = true;
+            this.txtINSERT_P.Name = "txtINSERT_P";
+            this.txtINSERT_P.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtINSERT_P.Size = new System.Drawing.Size(1128, 605);
+            this.txtINSERT_P.TabIndex = 1;
+            // 
+            // txtUPDATE_P
+            // 
+            this.txtUPDATE_P.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUPDATE_P.Location = new System.Drawing.Point(0, 0);
+            this.txtUPDATE_P.Multiline = true;
+            this.txtUPDATE_P.Name = "txtUPDATE_P";
+            this.txtUPDATE_P.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtUPDATE_P.Size = new System.Drawing.Size(1128, 605);
+            this.txtUPDATE_P.TabIndex = 1;
+            // 
+            // txtDELETE_P
+            // 
+            this.txtDELETE_P.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDELETE_P.Location = new System.Drawing.Point(0, 0);
+            this.txtDELETE_P.Multiline = true;
+            this.txtDELETE_P.Name = "txtDELETE_P";
+            this.txtDELETE_P.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtDELETE_P.Size = new System.Drawing.Size(1128, 605);
+            this.txtDELETE_P.TabIndex = 1;
+            // 
+            // txtMERGE_P
+            // 
+            this.txtMERGE_P.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMERGE_P.Location = new System.Drawing.Point(0, 0);
+            this.txtMERGE_P.Multiline = true;
+            this.txtMERGE_P.Name = "txtMERGE_P";
+            this.txtMERGE_P.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtMERGE_P.Size = new System.Drawing.Size(1128, 605);
+            this.txtMERGE_P.TabIndex = 1;
+            // 
+            // txtRDB_SCHEMA
+            // 
+            this.txtRDB_SCHEMA.Location = new System.Drawing.Point(160, 8);
+            this.txtRDB_SCHEMA.Name = "txtRDB_SCHEMA";
+            this.txtRDB_SCHEMA.ReadOnly = true;
+            this.txtRDB_SCHEMA.Size = new System.Drawing.Size(41, 21);
+            this.txtRDB_SCHEMA.TabIndex = 11;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -1477,6 +1742,7 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.tabSQL.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.tabSCRIPT.ResumeLayout(false);
             this.tabLOG.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -1488,6 +1754,27 @@
             this.panel5.PerformLayout();
             this.grpSetup.ResumeLayout(false);
             this.grpSetup.PerformLayout();
+            this.tabQUERY.ResumeLayout(false);
+            this.SELECT_Q.ResumeLayout(false);
+            this.SELECT_Q.PerformLayout();
+            this.INSERT_Q.ResumeLayout(false);
+            this.INSERT_Q.PerformLayout();
+            this.UPDATE_Q.ResumeLayout(false);
+            this.UPDATE_Q.PerformLayout();
+            this.DELETE_Q.ResumeLayout(false);
+            this.DELETE_Q.PerformLayout();
+            this.MERGE_Q.ResumeLayout(false);
+            this.MERGE_Q.PerformLayout();
+            this.SELECT_P.ResumeLayout(false);
+            this.SELECT_P.PerformLayout();
+            this.INSERT_P.ResumeLayout(false);
+            this.INSERT_P.PerformLayout();
+            this.UPDATE_P.ResumeLayout(false);
+            this.UPDATE_P.PerformLayout();
+            this.DELETE_P.ResumeLayout(false);
+            this.DELETE_P.PerformLayout();
+            this.MERGE_P.ResumeLayout(false);
+            this.MERGE_P.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1593,6 +1880,28 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idxCOLUMN_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn idxCOLUMNS_COMMENT;
         private System.Windows.Forms.DataGridViewTextBoxColumn idxCOLUMNS_DATA_TYPE;
+        private System.Windows.Forms.TabControl tabQUERY;
+        private System.Windows.Forms.TabPage SELECT_Q;
+        private System.Windows.Forms.TabPage INSERT_Q;
+        private System.Windows.Forms.TabPage UPDATE_Q;
+        private System.Windows.Forms.TabPage DELETE_Q;
+        private System.Windows.Forms.TabPage MERGE_Q;
+        private System.Windows.Forms.TabPage SELECT_P;
+        private System.Windows.Forms.TabPage INSERT_P;
+        private System.Windows.Forms.TabPage UPDATE_P;
+        private System.Windows.Forms.TabPage DELETE_P;
+        private System.Windows.Forms.TabPage MERGE_P;
+        private System.Windows.Forms.TextBox txtSELECT_Q;
+        private System.Windows.Forms.TextBox txtINSERT_Q;
+        private System.Windows.Forms.TextBox txtUPDATE_Q;
+        private System.Windows.Forms.TextBox txtDELETE_Q;
+        private System.Windows.Forms.TextBox txtMERGE_Q;
+        private System.Windows.Forms.TextBox txtSELECT_P;
+        private System.Windows.Forms.TextBox txtINSERT_P;
+        private System.Windows.Forms.TextBox txtUPDATE_P;
+        private System.Windows.Forms.TextBox txtDELETE_P;
+        private System.Windows.Forms.TextBox txtMERGE_P;
+        private System.Windows.Forms.TextBox txtRDB_SCHEMA;
     }
 }
 
