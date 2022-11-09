@@ -58,15 +58,57 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.gvIndexMaster = new System.Windows.Forms.DataGridView();
+            this.INDEX_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.INDEX_TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FILES = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gvIndexDetail = new System.Windows.Forms.DataGridView();
+            this.SEQ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idxCOLUMN_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idxCOLUMNS_COMMENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idxCOLUMNS_DATA_TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.txtRDB_SCHEMA = new System.Windows.Forms.TextBox();
             this.btnCode = new MaterialSkin.Controls.MaterialButton();
             this.txtRDB_Name = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabSQL = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tabQUERY = new System.Windows.Forms.TabControl();
+            this.SELECT_Q = new System.Windows.Forms.TabPage();
+            this.txtSELECT_Q = new System.Windows.Forms.TextBox();
+            this.INSERT_Q = new System.Windows.Forms.TabPage();
+            this.txtINSERT_Q = new System.Windows.Forms.TextBox();
+            this.UPDATE_Q = new System.Windows.Forms.TabPage();
+            this.txtUPDATE_Q = new System.Windows.Forms.TextBox();
+            this.DELETE_Q = new System.Windows.Forms.TabPage();
+            this.txtDELETE_Q = new System.Windows.Forms.TextBox();
+            this.MERGE_Q = new System.Windows.Forms.TabPage();
+            this.txtMERGE_Q = new System.Windows.Forms.TextBox();
+            this.SELECT_P = new System.Windows.Forms.TabPage();
+            this.txtSELECT_P = new System.Windows.Forms.TextBox();
+            this.INSERT_P = new System.Windows.Forms.TabPage();
+            this.txtINSERT_P = new System.Windows.Forms.TextBox();
+            this.UPDATE_P = new System.Windows.Forms.TabPage();
+            this.txtUPDATE_P = new System.Windows.Forms.TextBox();
+            this.DELETE_P = new System.Windows.Forms.TabPage();
+            this.txtDELETE_P = new System.Windows.Forms.TextBox();
+            this.MERGE_P = new System.Windows.Forms.TabPage();
+            this.txtMERGE_P = new System.Windows.Forms.TextBox();
             this.tabSCRIPT = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gvCATE = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.btnCATE = new MaterialSkin.Controls.MaterialButton();
+            this.cboCATE = new System.Windows.Forms.ComboBox();
+            this.txtCATE_NAME = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtCATE_DETAIL = new System.Windows.Forms.TextBox();
             this.tabLOG = new System.Windows.Forms.TabPage();
             this.txtLOG = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -122,48 +164,6 @@
             this.materialCheckbox12 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox13 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox14 = new MaterialSkin.Controls.MaterialCheckbox();
-            this.INDEX_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.INDEX_TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FILES = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SEQ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idxCOLUMN_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idxCOLUMNS_COMMENT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idxCOLUMNS_DATA_TYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabQUERY = new System.Windows.Forms.TabControl();
-            this.SELECT_Q = new System.Windows.Forms.TabPage();
-            this.INSERT_Q = new System.Windows.Forms.TabPage();
-            this.UPDATE_Q = new System.Windows.Forms.TabPage();
-            this.DELETE_Q = new System.Windows.Forms.TabPage();
-            this.MERGE_Q = new System.Windows.Forms.TabPage();
-            this.SELECT_P = new System.Windows.Forms.TabPage();
-            this.INSERT_P = new System.Windows.Forms.TabPage();
-            this.UPDATE_P = new System.Windows.Forms.TabPage();
-            this.DELETE_P = new System.Windows.Forms.TabPage();
-            this.MERGE_P = new System.Windows.Forms.TabPage();
-            this.txtSELECT_Q = new System.Windows.Forms.TextBox();
-            this.txtINSERT_Q = new System.Windows.Forms.TextBox();
-            this.txtUPDATE_Q = new System.Windows.Forms.TextBox();
-            this.txtDELETE_Q = new System.Windows.Forms.TextBox();
-            this.txtMERGE_Q = new System.Windows.Forms.TextBox();
-            this.txtSELECT_P = new System.Windows.Forms.TextBox();
-            this.txtINSERT_P = new System.Windows.Forms.TextBox();
-            this.txtUPDATE_P = new System.Windows.Forms.TextBox();
-            this.txtDELETE_P = new System.Windows.Forms.TextBox();
-            this.txtMERGE_P = new System.Windows.Forms.TextBox();
-            this.txtRDB_SCHEMA = new System.Windows.Forms.TextBox();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.gvCATE = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.txtCATE_NAME = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtCATE_DETAIL = new System.Windows.Forms.TextBox();
-            this.cboCATE = new System.Windows.Forms.ComboBox();
-            this.btnCATE = new MaterialSkin.Controls.MaterialButton();
             this.materialTabControl1.SuspendLayout();
             this.tabTABLE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -188,14 +188,6 @@
             this.panel6.SuspendLayout();
             this.tabSQL.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.tabSCRIPT.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.tabLOG.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.grpDIC.SuspendLayout();
-            this.grpInfo.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.grpSetup.SuspendLayout();
             this.tabQUERY.SuspendLayout();
             this.SELECT_Q.SuspendLayout();
             this.INSERT_Q.SuspendLayout();
@@ -207,6 +199,8 @@
             this.UPDATE_P.SuspendLayout();
             this.DELETE_P.SuspendLayout();
             this.MERGE_P.SuspendLayout();
+            this.tabSCRIPT.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
@@ -214,6 +208,12 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvCATE)).BeginInit();
             this.panel7.SuspendLayout();
+            this.tabLOG.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.grpDIC.SuspendLayout();
+            this.grpInfo.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.grpSetup.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -551,6 +551,33 @@
             this.gvIndexMaster.TabIndex = 3;
             this.gvIndexMaster.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvIndexMaster_CellClick);
             // 
+            // INDEX_NAME
+            // 
+            this.INDEX_NAME.DataPropertyName = "INDEX_NAME";
+            this.INDEX_NAME.FillWeight = 80F;
+            this.INDEX_NAME.HeaderText = "인덱스 이름";
+            this.INDEX_NAME.Name = "INDEX_NAME";
+            this.INDEX_NAME.ReadOnly = true;
+            this.INDEX_NAME.Width = 160;
+            // 
+            // INDEX_TYPE
+            // 
+            this.INDEX_TYPE.DataPropertyName = "INDEX_TYPE";
+            this.INDEX_TYPE.FillWeight = 140F;
+            this.INDEX_TYPE.HeaderText = "인덱스 종류";
+            this.INDEX_TYPE.Name = "INDEX_TYPE";
+            this.INDEX_TYPE.ReadOnly = true;
+            this.INDEX_TYPE.Width = 140;
+            // 
+            // FILES
+            // 
+            this.FILES.DataPropertyName = "FILES";
+            this.FILES.FillWeight = 70F;
+            this.FILES.HeaderText = "파일";
+            this.FILES.Name = "FILES";
+            this.FILES.ReadOnly = true;
+            this.FILES.Width = 80;
+            // 
             // gvIndexDetail
             // 
             this.gvIndexDetail.AllowUserToAddRows = false;
@@ -570,6 +597,41 @@
             this.gvIndexDetail.Size = new System.Drawing.Size(586, 362);
             this.gvIndexDetail.TabIndex = 3;
             // 
+            // SEQ
+            // 
+            this.SEQ.DataPropertyName = "SEQ";
+            this.SEQ.FillWeight = 80F;
+            this.SEQ.HeaderText = "순번";
+            this.SEQ.Name = "SEQ";
+            this.SEQ.ReadOnly = true;
+            this.SEQ.Width = 60;
+            // 
+            // idxCOLUMN_NAME
+            // 
+            this.idxCOLUMN_NAME.DataPropertyName = "COLUMN_NAME";
+            this.idxCOLUMN_NAME.FillWeight = 140F;
+            this.idxCOLUMN_NAME.HeaderText = "컬럼 이름";
+            this.idxCOLUMN_NAME.Name = "idxCOLUMN_NAME";
+            this.idxCOLUMN_NAME.ReadOnly = true;
+            this.idxCOLUMN_NAME.Width = 180;
+            // 
+            // idxCOLUMNS_COMMENT
+            // 
+            this.idxCOLUMNS_COMMENT.DataPropertyName = "COLUMNS_COMMENT";
+            this.idxCOLUMNS_COMMENT.FillWeight = 70F;
+            this.idxCOLUMNS_COMMENT.HeaderText = "컬럼 주석";
+            this.idxCOLUMNS_COMMENT.Name = "idxCOLUMNS_COMMENT";
+            this.idxCOLUMNS_COMMENT.ReadOnly = true;
+            this.idxCOLUMNS_COMMENT.Width = 180;
+            // 
+            // idxCOLUMNS_DATA_TYPE
+            // 
+            this.idxCOLUMNS_DATA_TYPE.DataPropertyName = "COLUMNS_DATA_TYPE";
+            this.idxCOLUMNS_DATA_TYPE.HeaderText = "컬럼타입";
+            this.idxCOLUMNS_DATA_TYPE.Name = "idxCOLUMNS_DATA_TYPE";
+            this.idxCOLUMNS_DATA_TYPE.ReadOnly = true;
+            this.idxCOLUMNS_DATA_TYPE.Width = 80;
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.txtRDB_SCHEMA);
@@ -581,6 +643,14 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(594, 44);
             this.panel6.TabIndex = 2;
+            // 
+            // txtRDB_SCHEMA
+            // 
+            this.txtRDB_SCHEMA.Location = new System.Drawing.Point(160, 8);
+            this.txtRDB_SCHEMA.Name = "txtRDB_SCHEMA";
+            this.txtRDB_SCHEMA.ReadOnly = true;
+            this.txtRDB_SCHEMA.Size = new System.Drawing.Size(41, 21);
+            this.txtRDB_SCHEMA.TabIndex = 11;
             // 
             // btnCode
             // 
@@ -642,6 +712,226 @@
             this.panel2.Size = new System.Drawing.Size(1136, 631);
             this.panel2.TabIndex = 0;
             // 
+            // tabQUERY
+            // 
+            this.tabQUERY.Controls.Add(this.SELECT_Q);
+            this.tabQUERY.Controls.Add(this.INSERT_Q);
+            this.tabQUERY.Controls.Add(this.UPDATE_Q);
+            this.tabQUERY.Controls.Add(this.DELETE_Q);
+            this.tabQUERY.Controls.Add(this.MERGE_Q);
+            this.tabQUERY.Controls.Add(this.SELECT_P);
+            this.tabQUERY.Controls.Add(this.INSERT_P);
+            this.tabQUERY.Controls.Add(this.UPDATE_P);
+            this.tabQUERY.Controls.Add(this.DELETE_P);
+            this.tabQUERY.Controls.Add(this.MERGE_P);
+            this.tabQUERY.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabQUERY.Location = new System.Drawing.Point(0, 0);
+            this.tabQUERY.Name = "tabQUERY";
+            this.tabQUERY.SelectedIndex = 0;
+            this.tabQUERY.Size = new System.Drawing.Size(1136, 631);
+            this.tabQUERY.TabIndex = 0;
+            // 
+            // SELECT_Q
+            // 
+            this.SELECT_Q.Controls.Add(this.txtSELECT_Q);
+            this.SELECT_Q.Location = new System.Drawing.Point(4, 22);
+            this.SELECT_Q.Name = "SELECT_Q";
+            this.SELECT_Q.Padding = new System.Windows.Forms.Padding(3);
+            this.SELECT_Q.Size = new System.Drawing.Size(1128, 605);
+            this.SELECT_Q.TabIndex = 1;
+            this.SELECT_Q.Text = "Select Query";
+            this.SELECT_Q.UseVisualStyleBackColor = true;
+            // 
+            // txtSELECT_Q
+            // 
+            this.txtSELECT_Q.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSELECT_Q.Location = new System.Drawing.Point(3, 3);
+            this.txtSELECT_Q.Multiline = true;
+            this.txtSELECT_Q.Name = "txtSELECT_Q";
+            this.txtSELECT_Q.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtSELECT_Q.Size = new System.Drawing.Size(1122, 599);
+            this.txtSELECT_Q.TabIndex = 0;
+            // 
+            // INSERT_Q
+            // 
+            this.INSERT_Q.Controls.Add(this.txtINSERT_Q);
+            this.INSERT_Q.Location = new System.Drawing.Point(4, 22);
+            this.INSERT_Q.Name = "INSERT_Q";
+            this.INSERT_Q.Size = new System.Drawing.Size(1128, 605);
+            this.INSERT_Q.TabIndex = 2;
+            this.INSERT_Q.Text = "Insert Query";
+            this.INSERT_Q.UseVisualStyleBackColor = true;
+            // 
+            // txtINSERT_Q
+            // 
+            this.txtINSERT_Q.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtINSERT_Q.Location = new System.Drawing.Point(0, 0);
+            this.txtINSERT_Q.Multiline = true;
+            this.txtINSERT_Q.Name = "txtINSERT_Q";
+            this.txtINSERT_Q.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtINSERT_Q.Size = new System.Drawing.Size(1128, 605);
+            this.txtINSERT_Q.TabIndex = 1;
+            // 
+            // UPDATE_Q
+            // 
+            this.UPDATE_Q.Controls.Add(this.txtUPDATE_Q);
+            this.UPDATE_Q.Location = new System.Drawing.Point(4, 22);
+            this.UPDATE_Q.Name = "UPDATE_Q";
+            this.UPDATE_Q.Size = new System.Drawing.Size(1128, 605);
+            this.UPDATE_Q.TabIndex = 3;
+            this.UPDATE_Q.Text = "Update Query";
+            this.UPDATE_Q.UseVisualStyleBackColor = true;
+            // 
+            // txtUPDATE_Q
+            // 
+            this.txtUPDATE_Q.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUPDATE_Q.Location = new System.Drawing.Point(0, 0);
+            this.txtUPDATE_Q.Multiline = true;
+            this.txtUPDATE_Q.Name = "txtUPDATE_Q";
+            this.txtUPDATE_Q.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtUPDATE_Q.Size = new System.Drawing.Size(1128, 605);
+            this.txtUPDATE_Q.TabIndex = 1;
+            // 
+            // DELETE_Q
+            // 
+            this.DELETE_Q.Controls.Add(this.txtDELETE_Q);
+            this.DELETE_Q.Location = new System.Drawing.Point(4, 22);
+            this.DELETE_Q.Name = "DELETE_Q";
+            this.DELETE_Q.Size = new System.Drawing.Size(1128, 605);
+            this.DELETE_Q.TabIndex = 4;
+            this.DELETE_Q.Text = "Delete Query";
+            this.DELETE_Q.UseVisualStyleBackColor = true;
+            // 
+            // txtDELETE_Q
+            // 
+            this.txtDELETE_Q.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDELETE_Q.Location = new System.Drawing.Point(0, 0);
+            this.txtDELETE_Q.Multiline = true;
+            this.txtDELETE_Q.Name = "txtDELETE_Q";
+            this.txtDELETE_Q.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtDELETE_Q.Size = new System.Drawing.Size(1128, 605);
+            this.txtDELETE_Q.TabIndex = 1;
+            // 
+            // MERGE_Q
+            // 
+            this.MERGE_Q.Controls.Add(this.txtMERGE_Q);
+            this.MERGE_Q.Location = new System.Drawing.Point(4, 22);
+            this.MERGE_Q.Name = "MERGE_Q";
+            this.MERGE_Q.Size = new System.Drawing.Size(1128, 605);
+            this.MERGE_Q.TabIndex = 5;
+            this.MERGE_Q.Text = "Merge Query";
+            this.MERGE_Q.UseVisualStyleBackColor = true;
+            // 
+            // txtMERGE_Q
+            // 
+            this.txtMERGE_Q.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMERGE_Q.Location = new System.Drawing.Point(0, 0);
+            this.txtMERGE_Q.Multiline = true;
+            this.txtMERGE_Q.Name = "txtMERGE_Q";
+            this.txtMERGE_Q.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtMERGE_Q.Size = new System.Drawing.Size(1128, 605);
+            this.txtMERGE_Q.TabIndex = 1;
+            // 
+            // SELECT_P
+            // 
+            this.SELECT_P.Controls.Add(this.txtSELECT_P);
+            this.SELECT_P.Location = new System.Drawing.Point(4, 22);
+            this.SELECT_P.Name = "SELECT_P";
+            this.SELECT_P.Size = new System.Drawing.Size(1128, 605);
+            this.SELECT_P.TabIndex = 6;
+            this.SELECT_P.Text = "Select Proc";
+            this.SELECT_P.UseVisualStyleBackColor = true;
+            // 
+            // txtSELECT_P
+            // 
+            this.txtSELECT_P.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSELECT_P.Location = new System.Drawing.Point(0, 0);
+            this.txtSELECT_P.Multiline = true;
+            this.txtSELECT_P.Name = "txtSELECT_P";
+            this.txtSELECT_P.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtSELECT_P.Size = new System.Drawing.Size(1128, 605);
+            this.txtSELECT_P.TabIndex = 1;
+            // 
+            // INSERT_P
+            // 
+            this.INSERT_P.Controls.Add(this.txtINSERT_P);
+            this.INSERT_P.Location = new System.Drawing.Point(4, 22);
+            this.INSERT_P.Name = "INSERT_P";
+            this.INSERT_P.Size = new System.Drawing.Size(1128, 605);
+            this.INSERT_P.TabIndex = 7;
+            this.INSERT_P.Text = "Insert Proc";
+            this.INSERT_P.UseVisualStyleBackColor = true;
+            // 
+            // txtINSERT_P
+            // 
+            this.txtINSERT_P.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtINSERT_P.Location = new System.Drawing.Point(0, 0);
+            this.txtINSERT_P.Multiline = true;
+            this.txtINSERT_P.Name = "txtINSERT_P";
+            this.txtINSERT_P.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtINSERT_P.Size = new System.Drawing.Size(1128, 605);
+            this.txtINSERT_P.TabIndex = 1;
+            // 
+            // UPDATE_P
+            // 
+            this.UPDATE_P.Controls.Add(this.txtUPDATE_P);
+            this.UPDATE_P.Location = new System.Drawing.Point(4, 22);
+            this.UPDATE_P.Name = "UPDATE_P";
+            this.UPDATE_P.Size = new System.Drawing.Size(1128, 605);
+            this.UPDATE_P.TabIndex = 8;
+            this.UPDATE_P.Text = "Update Proc";
+            this.UPDATE_P.UseVisualStyleBackColor = true;
+            // 
+            // txtUPDATE_P
+            // 
+            this.txtUPDATE_P.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtUPDATE_P.Location = new System.Drawing.Point(0, 0);
+            this.txtUPDATE_P.Multiline = true;
+            this.txtUPDATE_P.Name = "txtUPDATE_P";
+            this.txtUPDATE_P.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtUPDATE_P.Size = new System.Drawing.Size(1128, 605);
+            this.txtUPDATE_P.TabIndex = 1;
+            // 
+            // DELETE_P
+            // 
+            this.DELETE_P.Controls.Add(this.txtDELETE_P);
+            this.DELETE_P.Location = new System.Drawing.Point(4, 22);
+            this.DELETE_P.Name = "DELETE_P";
+            this.DELETE_P.Size = new System.Drawing.Size(1128, 605);
+            this.DELETE_P.TabIndex = 9;
+            this.DELETE_P.Text = "Delete Proc";
+            this.DELETE_P.UseVisualStyleBackColor = true;
+            // 
+            // txtDELETE_P
+            // 
+            this.txtDELETE_P.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtDELETE_P.Location = new System.Drawing.Point(0, 0);
+            this.txtDELETE_P.Multiline = true;
+            this.txtDELETE_P.Name = "txtDELETE_P";
+            this.txtDELETE_P.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtDELETE_P.Size = new System.Drawing.Size(1128, 605);
+            this.txtDELETE_P.TabIndex = 1;
+            // 
+            // MERGE_P
+            // 
+            this.MERGE_P.Controls.Add(this.txtMERGE_P);
+            this.MERGE_P.Location = new System.Drawing.Point(4, 22);
+            this.MERGE_P.Name = "MERGE_P";
+            this.MERGE_P.Size = new System.Drawing.Size(1128, 605);
+            this.MERGE_P.TabIndex = 10;
+            this.MERGE_P.Text = "Merge Proc";
+            this.MERGE_P.UseVisualStyleBackColor = true;
+            // 
+            // txtMERGE_P
+            // 
+            this.txtMERGE_P.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtMERGE_P.Location = new System.Drawing.Point(0, 0);
+            this.txtMERGE_P.Multiline = true;
+            this.txtMERGE_P.Name = "txtMERGE_P";
+            this.txtMERGE_P.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtMERGE_P.Size = new System.Drawing.Size(1128, 605);
+            this.txtMERGE_P.TabIndex = 1;
+            // 
             // tabSCRIPT
             // 
             this.tabSCRIPT.Controls.Add(this.panel3);
@@ -663,6 +953,153 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1136, 631);
             this.panel3.TabIndex = 0;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.groupBox2);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.txtCATE_DETAIL);
+            this.splitContainer3.Size = new System.Drawing.Size(1136, 631);
+            this.splitContainer3.SplitterDistance = 529;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.gvCATE);
+            this.groupBox2.Controls.Add(this.panel7);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(529, 631);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Seach Condition";
+            // 
+            // gvCATE
+            // 
+            this.gvCATE.AllowUserToAddRows = false;
+            this.gvCATE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gvCATE.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            this.gvCATE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvCATE.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.gvCATE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gvCATE.Location = new System.Drawing.Point(3, 55);
+            this.gvCATE.Name = "gvCATE";
+            this.gvCATE.ReadOnly = true;
+            this.gvCATE.RowTemplate.Height = 23;
+            this.gvCATE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvCATE.Size = new System.Drawing.Size(523, 573);
+            this.gvCATE.TabIndex = 2;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "TABLE_NAME";
+            this.dataGridViewTextBoxColumn1.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "테이블 명";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "TABLE_COMMENT";
+            this.dataGridViewTextBoxColumn2.FillWeight = 140F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "주석";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "NUM_ROWS";
+            this.dataGridViewTextBoxColumn3.FillWeight = 70F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "행수";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.btnCATE);
+            this.panel7.Controls.Add(this.cboCATE);
+            this.panel7.Controls.Add(this.txtCATE_NAME);
+            this.panel7.Controls.Add(this.label3);
+            this.panel7.Controls.Add(this.label4);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(3, 17);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(523, 38);
+            this.panel7.TabIndex = 1;
+            // 
+            // btnCATE
+            // 
+            this.btnCATE.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCATE.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnCATE.Depth = 0;
+            this.btnCATE.HighEmphasis = true;
+            this.btnCATE.Icon = null;
+            this.btnCATE.Location = new System.Drawing.Point(412, 1);
+            this.btnCATE.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnCATE.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCATE.Name = "btnCATE";
+            this.btnCATE.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnCATE.Size = new System.Drawing.Size(78, 36);
+            this.btnCATE.TabIndex = 11;
+            this.btnCATE.Text = "Search";
+            this.btnCATE.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Text;
+            this.btnCATE.UseAccentColor = false;
+            this.btnCATE.UseVisualStyleBackColor = true;
+            // 
+            // cboCATE
+            // 
+            this.cboCATE.FormattingEnabled = true;
+            this.cboCATE.Location = new System.Drawing.Point(70, 6);
+            this.cboCATE.Name = "cboCATE";
+            this.cboCATE.Size = new System.Drawing.Size(141, 20);
+            this.cboCATE.TabIndex = 5;
+            // 
+            // txtCATE_NAME
+            // 
+            this.txtCATE_NAME.Location = new System.Drawing.Point(261, 7);
+            this.txtCATE_NAME.Name = "txtCATE_NAME";
+            this.txtCATE_NAME.Size = new System.Drawing.Size(139, 21);
+            this.txtCATE_NAME.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(215, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 12);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Name";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 12);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Category";
+            // 
+            // txtCATE_DETAIL
+            // 
+            this.txtCATE_DETAIL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCATE_DETAIL.Location = new System.Drawing.Point(0, 0);
+            this.txtCATE_DETAIL.Multiline = true;
+            this.txtCATE_DETAIL.Name = "txtCATE_DETAIL";
+            this.txtCATE_DETAIL.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtCATE_DETAIL.Size = new System.Drawing.Size(603, 631);
+            this.txtCATE_DETAIL.TabIndex = 2;
             // 
             // tabLOG
             // 
@@ -1434,443 +1871,6 @@
             this.materialCheckbox14.Text = "materialCheckbox14";
             this.materialCheckbox14.UseVisualStyleBackColor = true;
             // 
-            // INDEX_NAME
-            // 
-            this.INDEX_NAME.DataPropertyName = "INDEX_NAME";
-            this.INDEX_NAME.FillWeight = 80F;
-            this.INDEX_NAME.HeaderText = "인덱스 이름";
-            this.INDEX_NAME.Name = "INDEX_NAME";
-            this.INDEX_NAME.ReadOnly = true;
-            this.INDEX_NAME.Width = 160;
-            // 
-            // INDEX_TYPE
-            // 
-            this.INDEX_TYPE.DataPropertyName = "INDEX_TYPE";
-            this.INDEX_TYPE.FillWeight = 140F;
-            this.INDEX_TYPE.HeaderText = "인덱스 종류";
-            this.INDEX_TYPE.Name = "INDEX_TYPE";
-            this.INDEX_TYPE.ReadOnly = true;
-            this.INDEX_TYPE.Width = 140;
-            // 
-            // FILES
-            // 
-            this.FILES.DataPropertyName = "FILES";
-            this.FILES.FillWeight = 70F;
-            this.FILES.HeaderText = "파일";
-            this.FILES.Name = "FILES";
-            this.FILES.ReadOnly = true;
-            this.FILES.Width = 80;
-            // 
-            // SEQ
-            // 
-            this.SEQ.DataPropertyName = "SEQ";
-            this.SEQ.FillWeight = 80F;
-            this.SEQ.HeaderText = "순번";
-            this.SEQ.Name = "SEQ";
-            this.SEQ.ReadOnly = true;
-            this.SEQ.Width = 60;
-            // 
-            // idxCOLUMN_NAME
-            // 
-            this.idxCOLUMN_NAME.DataPropertyName = "COLUMN_NAME";
-            this.idxCOLUMN_NAME.FillWeight = 140F;
-            this.idxCOLUMN_NAME.HeaderText = "컬럼 이름";
-            this.idxCOLUMN_NAME.Name = "idxCOLUMN_NAME";
-            this.idxCOLUMN_NAME.ReadOnly = true;
-            this.idxCOLUMN_NAME.Width = 180;
-            // 
-            // idxCOLUMNS_COMMENT
-            // 
-            this.idxCOLUMNS_COMMENT.DataPropertyName = "COLUMNS_COMMENT";
-            this.idxCOLUMNS_COMMENT.FillWeight = 70F;
-            this.idxCOLUMNS_COMMENT.HeaderText = "컬럼 주석";
-            this.idxCOLUMNS_COMMENT.Name = "idxCOLUMNS_COMMENT";
-            this.idxCOLUMNS_COMMENT.ReadOnly = true;
-            this.idxCOLUMNS_COMMENT.Width = 180;
-            // 
-            // idxCOLUMNS_DATA_TYPE
-            // 
-            this.idxCOLUMNS_DATA_TYPE.DataPropertyName = "COLUMNS_DATA_TYPE";
-            this.idxCOLUMNS_DATA_TYPE.HeaderText = "컬럼타입";
-            this.idxCOLUMNS_DATA_TYPE.Name = "idxCOLUMNS_DATA_TYPE";
-            this.idxCOLUMNS_DATA_TYPE.ReadOnly = true;
-            this.idxCOLUMNS_DATA_TYPE.Width = 80;
-            // 
-            // tabQUERY
-            // 
-            this.tabQUERY.Controls.Add(this.SELECT_Q);
-            this.tabQUERY.Controls.Add(this.INSERT_Q);
-            this.tabQUERY.Controls.Add(this.UPDATE_Q);
-            this.tabQUERY.Controls.Add(this.DELETE_Q);
-            this.tabQUERY.Controls.Add(this.MERGE_Q);
-            this.tabQUERY.Controls.Add(this.SELECT_P);
-            this.tabQUERY.Controls.Add(this.INSERT_P);
-            this.tabQUERY.Controls.Add(this.UPDATE_P);
-            this.tabQUERY.Controls.Add(this.DELETE_P);
-            this.tabQUERY.Controls.Add(this.MERGE_P);
-            this.tabQUERY.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabQUERY.Location = new System.Drawing.Point(0, 0);
-            this.tabQUERY.Name = "tabQUERY";
-            this.tabQUERY.SelectedIndex = 0;
-            this.tabQUERY.Size = new System.Drawing.Size(1136, 631);
-            this.tabQUERY.TabIndex = 0;
-            // 
-            // SELECT_Q
-            // 
-            this.SELECT_Q.Controls.Add(this.txtSELECT_Q);
-            this.SELECT_Q.Location = new System.Drawing.Point(4, 22);
-            this.SELECT_Q.Name = "SELECT_Q";
-            this.SELECT_Q.Padding = new System.Windows.Forms.Padding(3);
-            this.SELECT_Q.Size = new System.Drawing.Size(1128, 605);
-            this.SELECT_Q.TabIndex = 1;
-            this.SELECT_Q.Text = "Select Query";
-            this.SELECT_Q.UseVisualStyleBackColor = true;
-            // 
-            // INSERT_Q
-            // 
-            this.INSERT_Q.Controls.Add(this.txtINSERT_Q);
-            this.INSERT_Q.Location = new System.Drawing.Point(4, 22);
-            this.INSERT_Q.Name = "INSERT_Q";
-            this.INSERT_Q.Size = new System.Drawing.Size(1128, 605);
-            this.INSERT_Q.TabIndex = 2;
-            this.INSERT_Q.Text = "Insert Query";
-            this.INSERT_Q.UseVisualStyleBackColor = true;
-            // 
-            // UPDATE_Q
-            // 
-            this.UPDATE_Q.Controls.Add(this.txtUPDATE_Q);
-            this.UPDATE_Q.Location = new System.Drawing.Point(4, 22);
-            this.UPDATE_Q.Name = "UPDATE_Q";
-            this.UPDATE_Q.Size = new System.Drawing.Size(1128, 605);
-            this.UPDATE_Q.TabIndex = 3;
-            this.UPDATE_Q.Text = "Update Query";
-            this.UPDATE_Q.UseVisualStyleBackColor = true;
-            // 
-            // DELETE_Q
-            // 
-            this.DELETE_Q.Controls.Add(this.txtDELETE_Q);
-            this.DELETE_Q.Location = new System.Drawing.Point(4, 22);
-            this.DELETE_Q.Name = "DELETE_Q";
-            this.DELETE_Q.Size = new System.Drawing.Size(1128, 605);
-            this.DELETE_Q.TabIndex = 4;
-            this.DELETE_Q.Text = "Delete Query";
-            this.DELETE_Q.UseVisualStyleBackColor = true;
-            // 
-            // MERGE_Q
-            // 
-            this.MERGE_Q.Controls.Add(this.txtMERGE_Q);
-            this.MERGE_Q.Location = new System.Drawing.Point(4, 22);
-            this.MERGE_Q.Name = "MERGE_Q";
-            this.MERGE_Q.Size = new System.Drawing.Size(1128, 605);
-            this.MERGE_Q.TabIndex = 5;
-            this.MERGE_Q.Text = "Merge Query";
-            this.MERGE_Q.UseVisualStyleBackColor = true;
-            // 
-            // SELECT_P
-            // 
-            this.SELECT_P.Controls.Add(this.txtSELECT_P);
-            this.SELECT_P.Location = new System.Drawing.Point(4, 22);
-            this.SELECT_P.Name = "SELECT_P";
-            this.SELECT_P.Size = new System.Drawing.Size(1128, 605);
-            this.SELECT_P.TabIndex = 6;
-            this.SELECT_P.Text = "Select Proc";
-            this.SELECT_P.UseVisualStyleBackColor = true;
-            // 
-            // INSERT_P
-            // 
-            this.INSERT_P.Controls.Add(this.txtINSERT_P);
-            this.INSERT_P.Location = new System.Drawing.Point(4, 22);
-            this.INSERT_P.Name = "INSERT_P";
-            this.INSERT_P.Size = new System.Drawing.Size(1128, 605);
-            this.INSERT_P.TabIndex = 7;
-            this.INSERT_P.Text = "Insert Proc";
-            this.INSERT_P.UseVisualStyleBackColor = true;
-            // 
-            // UPDATE_P
-            // 
-            this.UPDATE_P.Controls.Add(this.txtUPDATE_P);
-            this.UPDATE_P.Location = new System.Drawing.Point(4, 22);
-            this.UPDATE_P.Name = "UPDATE_P";
-            this.UPDATE_P.Size = new System.Drawing.Size(1128, 605);
-            this.UPDATE_P.TabIndex = 8;
-            this.UPDATE_P.Text = "Update Proc";
-            this.UPDATE_P.UseVisualStyleBackColor = true;
-            // 
-            // DELETE_P
-            // 
-            this.DELETE_P.Controls.Add(this.txtDELETE_P);
-            this.DELETE_P.Location = new System.Drawing.Point(4, 22);
-            this.DELETE_P.Name = "DELETE_P";
-            this.DELETE_P.Size = new System.Drawing.Size(1128, 605);
-            this.DELETE_P.TabIndex = 9;
-            this.DELETE_P.Text = "Delete Proc";
-            this.DELETE_P.UseVisualStyleBackColor = true;
-            // 
-            // MERGE_P
-            // 
-            this.MERGE_P.Controls.Add(this.txtMERGE_P);
-            this.MERGE_P.Location = new System.Drawing.Point(4, 22);
-            this.MERGE_P.Name = "MERGE_P";
-            this.MERGE_P.Size = new System.Drawing.Size(1128, 605);
-            this.MERGE_P.TabIndex = 10;
-            this.MERGE_P.Text = "Merge Proc";
-            this.MERGE_P.UseVisualStyleBackColor = true;
-            // 
-            // txtSELECT_Q
-            // 
-            this.txtSELECT_Q.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSELECT_Q.Location = new System.Drawing.Point(3, 3);
-            this.txtSELECT_Q.Multiline = true;
-            this.txtSELECT_Q.Name = "txtSELECT_Q";
-            this.txtSELECT_Q.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtSELECT_Q.Size = new System.Drawing.Size(1122, 599);
-            this.txtSELECT_Q.TabIndex = 0;
-            // 
-            // txtINSERT_Q
-            // 
-            this.txtINSERT_Q.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtINSERT_Q.Location = new System.Drawing.Point(0, 0);
-            this.txtINSERT_Q.Multiline = true;
-            this.txtINSERT_Q.Name = "txtINSERT_Q";
-            this.txtINSERT_Q.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtINSERT_Q.Size = new System.Drawing.Size(1128, 605);
-            this.txtINSERT_Q.TabIndex = 1;
-            // 
-            // txtUPDATE_Q
-            // 
-            this.txtUPDATE_Q.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUPDATE_Q.Location = new System.Drawing.Point(0, 0);
-            this.txtUPDATE_Q.Multiline = true;
-            this.txtUPDATE_Q.Name = "txtUPDATE_Q";
-            this.txtUPDATE_Q.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtUPDATE_Q.Size = new System.Drawing.Size(1128, 605);
-            this.txtUPDATE_Q.TabIndex = 1;
-            // 
-            // txtDELETE_Q
-            // 
-            this.txtDELETE_Q.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDELETE_Q.Location = new System.Drawing.Point(0, 0);
-            this.txtDELETE_Q.Multiline = true;
-            this.txtDELETE_Q.Name = "txtDELETE_Q";
-            this.txtDELETE_Q.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtDELETE_Q.Size = new System.Drawing.Size(1128, 605);
-            this.txtDELETE_Q.TabIndex = 1;
-            // 
-            // txtMERGE_Q
-            // 
-            this.txtMERGE_Q.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMERGE_Q.Location = new System.Drawing.Point(0, 0);
-            this.txtMERGE_Q.Multiline = true;
-            this.txtMERGE_Q.Name = "txtMERGE_Q";
-            this.txtMERGE_Q.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtMERGE_Q.Size = new System.Drawing.Size(1128, 605);
-            this.txtMERGE_Q.TabIndex = 1;
-            // 
-            // txtSELECT_P
-            // 
-            this.txtSELECT_P.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSELECT_P.Location = new System.Drawing.Point(0, 0);
-            this.txtSELECT_P.Multiline = true;
-            this.txtSELECT_P.Name = "txtSELECT_P";
-            this.txtSELECT_P.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtSELECT_P.Size = new System.Drawing.Size(1128, 605);
-            this.txtSELECT_P.TabIndex = 1;
-            // 
-            // txtINSERT_P
-            // 
-            this.txtINSERT_P.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtINSERT_P.Location = new System.Drawing.Point(0, 0);
-            this.txtINSERT_P.Multiline = true;
-            this.txtINSERT_P.Name = "txtINSERT_P";
-            this.txtINSERT_P.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtINSERT_P.Size = new System.Drawing.Size(1128, 605);
-            this.txtINSERT_P.TabIndex = 1;
-            // 
-            // txtUPDATE_P
-            // 
-            this.txtUPDATE_P.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtUPDATE_P.Location = new System.Drawing.Point(0, 0);
-            this.txtUPDATE_P.Multiline = true;
-            this.txtUPDATE_P.Name = "txtUPDATE_P";
-            this.txtUPDATE_P.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtUPDATE_P.Size = new System.Drawing.Size(1128, 605);
-            this.txtUPDATE_P.TabIndex = 1;
-            // 
-            // txtDELETE_P
-            // 
-            this.txtDELETE_P.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtDELETE_P.Location = new System.Drawing.Point(0, 0);
-            this.txtDELETE_P.Multiline = true;
-            this.txtDELETE_P.Name = "txtDELETE_P";
-            this.txtDELETE_P.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtDELETE_P.Size = new System.Drawing.Size(1128, 605);
-            this.txtDELETE_P.TabIndex = 1;
-            // 
-            // txtMERGE_P
-            // 
-            this.txtMERGE_P.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMERGE_P.Location = new System.Drawing.Point(0, 0);
-            this.txtMERGE_P.Multiline = true;
-            this.txtMERGE_P.Name = "txtMERGE_P";
-            this.txtMERGE_P.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtMERGE_P.Size = new System.Drawing.Size(1128, 605);
-            this.txtMERGE_P.TabIndex = 1;
-            // 
-            // txtRDB_SCHEMA
-            // 
-            this.txtRDB_SCHEMA.Location = new System.Drawing.Point(160, 8);
-            this.txtRDB_SCHEMA.Name = "txtRDB_SCHEMA";
-            this.txtRDB_SCHEMA.ReadOnly = true;
-            this.txtRDB_SCHEMA.Size = new System.Drawing.Size(41, 21);
-            this.txtRDB_SCHEMA.TabIndex = 11;
-            // 
-            // splitContainer3
-            // 
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer3.Name = "splitContainer3";
-            // 
-            // splitContainer3.Panel1
-            // 
-            this.splitContainer3.Panel1.Controls.Add(this.groupBox2);
-            // 
-            // splitContainer3.Panel2
-            // 
-            this.splitContainer3.Panel2.Controls.Add(this.txtCATE_DETAIL);
-            this.splitContainer3.Size = new System.Drawing.Size(1136, 631);
-            this.splitContainer3.SplitterDistance = 529;
-            this.splitContainer3.TabIndex = 0;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.gvCATE);
-            this.groupBox2.Controls.Add(this.panel7);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(529, 631);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Seach Condition";
-            // 
-            // gvCATE
-            // 
-            this.gvCATE.AllowUserToAddRows = false;
-            this.gvCATE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gvCATE.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            this.gvCATE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvCATE.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.gvCATE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gvCATE.Location = new System.Drawing.Point(3, 55);
-            this.gvCATE.Name = "gvCATE";
-            this.gvCATE.ReadOnly = true;
-            this.gvCATE.RowTemplate.Height = 23;
-            this.gvCATE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvCATE.Size = new System.Drawing.Size(523, 573);
-            this.gvCATE.TabIndex = 2;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "TABLE_NAME";
-            this.dataGridViewTextBoxColumn1.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "테이블 명";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "TABLE_COMMENT";
-            this.dataGridViewTextBoxColumn2.FillWeight = 140F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "주석";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "NUM_ROWS";
-            this.dataGridViewTextBoxColumn3.FillWeight = 70F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "행수";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.btnCATE);
-            this.panel7.Controls.Add(this.cboCATE);
-            this.panel7.Controls.Add(this.txtCATE_NAME);
-            this.panel7.Controls.Add(this.label3);
-            this.panel7.Controls.Add(this.label4);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(3, 17);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(523, 38);
-            this.panel7.TabIndex = 1;
-            // 
-            // txtCATE_NAME
-            // 
-            this.txtCATE_NAME.Location = new System.Drawing.Point(245, 7);
-            this.txtCATE_NAME.Name = "txtCATE_NAME";
-            this.txtCATE_NAME.Size = new System.Drawing.Size(155, 21);
-            this.txtCATE_NAME.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(200, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 12);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Name";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 12);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Category";
-            // 
-            // txtCATE_DETAIL
-            // 
-            this.txtCATE_DETAIL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCATE_DETAIL.Location = new System.Drawing.Point(0, 0);
-            this.txtCATE_DETAIL.Multiline = true;
-            this.txtCATE_DETAIL.Name = "txtCATE_DETAIL";
-            this.txtCATE_DETAIL.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtCATE_DETAIL.Size = new System.Drawing.Size(603, 631);
-            this.txtCATE_DETAIL.TabIndex = 2;
-            // 
-            // cboCATE
-            // 
-            this.cboCATE.FormattingEnabled = true;
-            this.cboCATE.Location = new System.Drawing.Point(70, 6);
-            this.cboCATE.Name = "cboCATE";
-            this.cboCATE.Size = new System.Drawing.Size(121, 20);
-            this.cboCATE.TabIndex = 5;
-            // 
-            // btnCATE
-            // 
-            this.btnCATE.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnCATE.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnCATE.Depth = 0;
-            this.btnCATE.HighEmphasis = true;
-            this.btnCATE.Icon = null;
-            this.btnCATE.Location = new System.Drawing.Point(412, 1);
-            this.btnCATE.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnCATE.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnCATE.Name = "btnCATE";
-            this.btnCATE.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnCATE.Size = new System.Drawing.Size(78, 36);
-            this.btnCATE.TabIndex = 11;
-            this.btnCATE.Text = "Search";
-            this.btnCATE.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Text;
-            this.btnCATE.UseAccentColor = false;
-            this.btnCATE.UseVisualStyleBackColor = true;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -1912,18 +1912,6 @@
             this.panel6.PerformLayout();
             this.tabSQL.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.tabSCRIPT.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.tabLOG.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.grpDIC.ResumeLayout(false);
-            this.grpDIC.PerformLayout();
-            this.grpInfo.ResumeLayout(false);
-            this.grpInfo.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.grpSetup.ResumeLayout(false);
-            this.grpSetup.PerformLayout();
             this.tabQUERY.ResumeLayout(false);
             this.SELECT_Q.ResumeLayout(false);
             this.SELECT_Q.PerformLayout();
@@ -1945,6 +1933,8 @@
             this.DELETE_P.PerformLayout();
             this.MERGE_P.ResumeLayout(false);
             this.MERGE_P.PerformLayout();
+            this.tabSCRIPT.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
             this.splitContainer3.Panel2.PerformLayout();
@@ -1954,6 +1944,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvCATE)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.tabLOG.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.grpDIC.ResumeLayout(false);
+            this.grpDIC.PerformLayout();
+            this.grpInfo.ResumeLayout(false);
+            this.grpInfo.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.grpSetup.ResumeLayout(false);
+            this.grpSetup.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -41,6 +41,7 @@ namespace CodeMaker
         private void frmMain_Load(object sender, EventArgs e)
         {
             ConfigLoad();
+            ComboboxInit();
 
             chkALL_CheckedChanged(null, null);
         }
@@ -505,6 +506,28 @@ namespace CodeMaker
 
                 MaterialMessageBox.Show("DB에 등록된 테이블이 존재하지 않습니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void ComboboxInit()
+        {
+            DataTable dtCol = new DataTable();
+
+            dtCol.Columns.Add(new DataColumn("VALUE", typeof(string)));
+            dtCol.Columns.Add(new DataColumn("NAME", typeof(string)));
+
+            dtCol.Rows.Add("PROCEDURE", "PROCEDURE");
+            dtCol.Rows.Add("SCALA FUNCTION", "SCALA FUNCTION");
+            dtCol.Rows.Add("TABLE FUNCTION", "TABLE FUNCTION");
+            dtCol.Rows.Add("INLINE FUNCTION", "INLINE FUNCTION");
+            dtCol.Rows.Add("TRIGER", "TRIGER");
+            dtCol.Rows.Add("VIEW", "VIEW");
+            dtCol.Rows.Add("CHECK", "CHECK");
+            dtCol.Rows.Add("DEFAULT", "DEFAULT");
+            dtCol.Rows.Add("ROLE", "ROLE");
+
+            cboCATE.DataSource = dtCol;
+            cboCATE.ValueMember = "VALUE";
+            cboCATE.DisplayMember = "NAME";
         }
 
         private void ConfigLoad()
