@@ -151,6 +151,19 @@
             this.txtDELETE_P = new System.Windows.Forms.TextBox();
             this.txtMERGE_P = new System.Windows.Forms.TextBox();
             this.txtRDB_SCHEMA = new System.Windows.Forms.TextBox();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gvCATE = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.txtCATE_NAME = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtCATE_DETAIL = new System.Windows.Forms.TextBox();
+            this.cboCATE = new System.Windows.Forms.ComboBox();
+            this.btnCATE = new MaterialSkin.Controls.MaterialButton();
             this.materialTabControl1.SuspendLayout();
             this.tabTABLE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -176,6 +189,7 @@
             this.tabSQL.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabSCRIPT.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.tabLOG.SuspendLayout();
             this.panel4.SuspendLayout();
             this.grpDIC.SuspendLayout();
@@ -193,6 +207,13 @@
             this.UPDATE_P.SuspendLayout();
             this.DELETE_P.SuspendLayout();
             this.MERGE_P.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCATE)).BeginInit();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -636,6 +657,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.splitContainer3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
@@ -1702,6 +1724,153 @@
             this.txtRDB_SCHEMA.Size = new System.Drawing.Size(41, 21);
             this.txtRDB_SCHEMA.TabIndex = 11;
             // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.groupBox2);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.txtCATE_DETAIL);
+            this.splitContainer3.Size = new System.Drawing.Size(1136, 631);
+            this.splitContainer3.SplitterDistance = 529;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.gvCATE);
+            this.groupBox2.Controls.Add(this.panel7);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(529, 631);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Seach Condition";
+            // 
+            // gvCATE
+            // 
+            this.gvCATE.AllowUserToAddRows = false;
+            this.gvCATE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.gvCATE.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            this.gvCATE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvCATE.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.gvCATE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gvCATE.Location = new System.Drawing.Point(3, 55);
+            this.gvCATE.Name = "gvCATE";
+            this.gvCATE.ReadOnly = true;
+            this.gvCATE.RowTemplate.Height = 23;
+            this.gvCATE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvCATE.Size = new System.Drawing.Size(523, 573);
+            this.gvCATE.TabIndex = 2;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "TABLE_NAME";
+            this.dataGridViewTextBoxColumn1.FillWeight = 80F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "테이블 명";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "TABLE_COMMENT";
+            this.dataGridViewTextBoxColumn2.FillWeight = 140F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "주석";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "NUM_ROWS";
+            this.dataGridViewTextBoxColumn3.FillWeight = 70F;
+            this.dataGridViewTextBoxColumn3.HeaderText = "행수";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.btnCATE);
+            this.panel7.Controls.Add(this.cboCATE);
+            this.panel7.Controls.Add(this.txtCATE_NAME);
+            this.panel7.Controls.Add(this.label3);
+            this.panel7.Controls.Add(this.label4);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(3, 17);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(523, 38);
+            this.panel7.TabIndex = 1;
+            // 
+            // txtCATE_NAME
+            // 
+            this.txtCATE_NAME.Location = new System.Drawing.Point(245, 7);
+            this.txtCATE_NAME.Name = "txtCATE_NAME";
+            this.txtCATE_NAME.Size = new System.Drawing.Size(155, 21);
+            this.txtCATE_NAME.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(200, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 12);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Name";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 12);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Category";
+            // 
+            // txtCATE_DETAIL
+            // 
+            this.txtCATE_DETAIL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtCATE_DETAIL.Location = new System.Drawing.Point(0, 0);
+            this.txtCATE_DETAIL.Multiline = true;
+            this.txtCATE_DETAIL.Name = "txtCATE_DETAIL";
+            this.txtCATE_DETAIL.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtCATE_DETAIL.Size = new System.Drawing.Size(603, 631);
+            this.txtCATE_DETAIL.TabIndex = 2;
+            // 
+            // cboCATE
+            // 
+            this.cboCATE.FormattingEnabled = true;
+            this.cboCATE.Location = new System.Drawing.Point(70, 6);
+            this.cboCATE.Name = "cboCATE";
+            this.cboCATE.Size = new System.Drawing.Size(121, 20);
+            this.cboCATE.TabIndex = 5;
+            // 
+            // btnCATE
+            // 
+            this.btnCATE.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCATE.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnCATE.Depth = 0;
+            this.btnCATE.HighEmphasis = true;
+            this.btnCATE.Icon = null;
+            this.btnCATE.Location = new System.Drawing.Point(412, 1);
+            this.btnCATE.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnCATE.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCATE.Name = "btnCATE";
+            this.btnCATE.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnCATE.Size = new System.Drawing.Size(78, 36);
+            this.btnCATE.TabIndex = 11;
+            this.btnCATE.Text = "Search";
+            this.btnCATE.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Text;
+            this.btnCATE.UseAccentColor = false;
+            this.btnCATE.UseVisualStyleBackColor = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -1744,6 +1913,7 @@
             this.tabSQL.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tabSCRIPT.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.tabLOG.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.grpDIC.ResumeLayout(false);
@@ -1775,6 +1945,15 @@
             this.DELETE_P.PerformLayout();
             this.MERGE_P.ResumeLayout(false);
             this.MERGE_P.PerformLayout();
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            this.splitContainer3.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gvCATE)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1902,6 +2081,19 @@
         private System.Windows.Forms.TextBox txtDELETE_P;
         private System.Windows.Forms.TextBox txtMERGE_P;
         private System.Windows.Forms.TextBox txtRDB_SCHEMA;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView gvCATE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.TextBox txtCATE_NAME;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtCATE_DETAIL;
+        private System.Windows.Forms.ComboBox cboCATE;
+        private MaterialSkin.Controls.MaterialButton btnCATE;
     }
 }
 
