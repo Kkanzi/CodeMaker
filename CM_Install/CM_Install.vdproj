@@ -118,6 +118,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0EE48151E35F9618C164BF7947C9E5B7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_BDD74E471E6E4879839D9802389ACFF8"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -167,12 +173,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_E4EA5E7266BBCB596FE28CDCBD32A1E9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0EE48151E35F9618C164BF7947C9E5B7"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -625,7 +625,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CodeMaker"
         "ProductCode" = "8:{B40D8FAC-8112-440F-8D92-4A665C0336FD}"
-        "PackageCode" = "8:{3C24F5A9-CA8B-4C57-A9C2-CA2EA758D7F1}"
+        "PackageCode" = "8:{30308DE1-975E-46DF-B582-6ACE1354C3BD}"
         "UpgradeCode" = "8:{A385ABDD-ADCF-4107-9D74-5FC266315F24}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
