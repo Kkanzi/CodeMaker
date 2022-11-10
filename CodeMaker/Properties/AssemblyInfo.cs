@@ -9,8 +9,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("SQL작성프로그램")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LottoPicker")]
-[assembly: AssemblyCopyright("Copyright © 강지훈 2022")]
+[assembly: AssemblyProduct("CodeMaker")]
+[assembly: AssemblyCopyright("Copyright © Kang Ji Hoon 2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
