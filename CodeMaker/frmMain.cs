@@ -30,8 +30,8 @@ namespace CodeMaker
 
             // Configure color schema
             materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Blue400, Primary.Blue500,
-                Primary.Blue500, Accent.LightBlue200,
+                Primary.Teal400, Primary.Teal500,
+                Primary.Green500, Accent.Green700,
                 TextShade.WHITE
             );
             string path = $@"{Application.StartupPath}{Path.DirectorySeparatorChar}Log{Path.DirectorySeparatorChar}";
