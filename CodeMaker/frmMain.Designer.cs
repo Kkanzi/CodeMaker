@@ -99,6 +99,10 @@
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gvCATE = new System.Windows.Forms.DataGridView();
+            this.OBJECT_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CREATED = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LAST_DDL_TIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnCATE = new MaterialSkin.Controls.MaterialButton();
             this.cboCATE = new System.Windows.Forms.ComboBox();
@@ -107,6 +111,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtCATE_DETAIL = new System.Windows.Forms.TextBox();
             this.tabLOG = new System.Windows.Forms.TabPage();
+            this.txtLOG = new System.Windows.Forms.TextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.txtIP = new System.Windows.Forms.TextBox();
@@ -160,11 +165,6 @@
             this.materialCheckbox12 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox13 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox14 = new MaterialSkin.Controls.MaterialCheckbox();
-            this.OBJECT_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CREATED = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LAST_DDL_TIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtLOG = new System.Windows.Forms.TextBox();
             this.materialTabControl1.SuspendLayout();
             this.tabTABLE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -1004,6 +1004,42 @@
             this.gvCATE.TabIndex = 2;
             this.gvCATE.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCATE_CellClick);
             // 
+            // OBJECT_NAME
+            // 
+            this.OBJECT_NAME.DataPropertyName = "OBJECT_NAME";
+            this.OBJECT_NAME.FillWeight = 80F;
+            this.OBJECT_NAME.HeaderText = "오브젝트";
+            this.OBJECT_NAME.Name = "OBJECT_NAME";
+            this.OBJECT_NAME.ReadOnly = true;
+            this.OBJECT_NAME.Width = 150;
+            // 
+            // STATUS
+            // 
+            this.STATUS.DataPropertyName = "STATUS";
+            this.STATUS.HeaderText = "상태";
+            this.STATUS.Name = "STATUS";
+            this.STATUS.ReadOnly = true;
+            this.STATUS.Visible = false;
+            this.STATUS.Width = 124;
+            // 
+            // CREATED
+            // 
+            this.CREATED.DataPropertyName = "CREATED";
+            this.CREATED.FillWeight = 140F;
+            this.CREATED.HeaderText = "생성일자";
+            this.CREATED.Name = "CREATED";
+            this.CREATED.ReadOnly = true;
+            this.CREATED.Width = 150;
+            // 
+            // LAST_DDL_TIME
+            // 
+            this.LAST_DDL_TIME.DataPropertyName = "LAST_DDL_TIME";
+            this.LAST_DDL_TIME.FillWeight = 70F;
+            this.LAST_DDL_TIME.HeaderText = "수정일자";
+            this.LAST_DDL_TIME.Name = "LAST_DDL_TIME";
+            this.LAST_DDL_TIME.ReadOnly = true;
+            this.LAST_DDL_TIME.Width = 150;
+            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.btnCATE);
@@ -1091,6 +1127,16 @@
             this.tabLOG.Tag = "로그 생성";
             this.tabLOG.Text = "LOG";
             this.tabLOG.UseVisualStyleBackColor = true;
+            // 
+            // txtLOG
+            // 
+            this.txtLOG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLOG.Location = new System.Drawing.Point(0, 0);
+            this.txtLOG.Multiline = true;
+            this.txtLOG.Name = "txtLOG";
+            this.txtLOG.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtLOG.Size = new System.Drawing.Size(1142, 637);
+            this.txtLOG.TabIndex = 0;
             // 
             // imageList1
             // 
@@ -1824,52 +1870,6 @@
             this.materialCheckbox14.Text = "materialCheckbox14";
             this.materialCheckbox14.UseVisualStyleBackColor = true;
             // 
-            // OBJECT_NAME
-            // 
-            this.OBJECT_NAME.DataPropertyName = "OBJECT_NAME";
-            this.OBJECT_NAME.FillWeight = 80F;
-            this.OBJECT_NAME.HeaderText = "오브젝트";
-            this.OBJECT_NAME.Name = "OBJECT_NAME";
-            this.OBJECT_NAME.ReadOnly = true;
-            this.OBJECT_NAME.Width = 150;
-            // 
-            // STATUS
-            // 
-            this.STATUS.DataPropertyName = "STATUS";
-            this.STATUS.HeaderText = "상태";
-            this.STATUS.Name = "STATUS";
-            this.STATUS.ReadOnly = true;
-            this.STATUS.Visible = false;
-            this.STATUS.Width = 124;
-            // 
-            // CREATED
-            // 
-            this.CREATED.DataPropertyName = "CREATED";
-            this.CREATED.FillWeight = 140F;
-            this.CREATED.HeaderText = "생성일자";
-            this.CREATED.Name = "CREATED";
-            this.CREATED.ReadOnly = true;
-            this.CREATED.Width = 150;
-            // 
-            // LAST_DDL_TIME
-            // 
-            this.LAST_DDL_TIME.DataPropertyName = "LAST_DDL_TIME";
-            this.LAST_DDL_TIME.FillWeight = 70F;
-            this.LAST_DDL_TIME.HeaderText = "수정일자";
-            this.LAST_DDL_TIME.Name = "LAST_DDL_TIME";
-            this.LAST_DDL_TIME.ReadOnly = true;
-            this.LAST_DDL_TIME.Width = 150;
-            // 
-            // txtLOG
-            // 
-            this.txtLOG.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLOG.Location = new System.Drawing.Point(0, 0);
-            this.txtLOG.Multiline = true;
-            this.txtLOG.Name = "txtLOG";
-            this.txtLOG.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLOG.Size = new System.Drawing.Size(1142, 637);
-            this.txtLOG.TabIndex = 0;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -1880,6 +1880,7 @@
             this.DrawerShowIconsWhenHidden = true;
             this.DrawerTabControl = this.materialTabControl1;
             this.HelpButton = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
