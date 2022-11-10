@@ -623,9 +623,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:CM_Install"
+        "ProductName" = "8:CodeMaker"
         "ProductCode" = "8:{B40D8FAC-8112-440F-8D92-4A665C0336FD}"
-        "PackageCode" = "8:{8CF463C0-CE28-43DC-8261-FE20EB8F609D}"
+        "PackageCode" = "8:{3C24F5A9-CA8B-4C57-A9C2-CA2EA758D7F1}"
         "UpgradeCode" = "8:{A385ABDD-ADCF-4107-9D74-5FC266315F24}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
