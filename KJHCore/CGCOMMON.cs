@@ -201,6 +201,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, stringBuilder1.ToString());
+                throw ex;
             }
             return stringBuilder1.ToString();
         }
@@ -243,6 +244,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, stringBuilder1.ToString());
+                throw ex;
             }
             return stringBuilder1.ToString();
         }
@@ -303,6 +305,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, stringBuilder1.ToString());
+                throw ex;
             }
             return stringBuilder1.ToString();
         }
@@ -372,6 +375,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, stringBuilder1.ToString());
+                throw ex;
             }
             return stringBuilder1.ToString();
         }
@@ -542,6 +546,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, stringBuilder1.ToString());
+                throw ex;
             }
             return stringBuilder1.ToString();
         }
@@ -572,6 +577,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, stringBuilder1.ToString());
+                throw ex;
             }
             return stringBuilder1.ToString();
         }
@@ -643,6 +649,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, stringBuilder1.ToString());
+                throw ex;
             }
             return stringBuilder1.ToString();
         }
@@ -745,6 +752,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, stringBuilder1.ToString());
+                throw ex;
             }
             return stringBuilder1.ToString();
         }
@@ -855,6 +863,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, stringBuilder1.ToString());
+                throw ex;
             }
             return stringBuilder1.ToString();
         }
@@ -938,6 +947,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, stringBuilder1.ToString());
+                throw ex;
             }
             return stringBuilder1.ToString();
         }
@@ -1038,6 +1048,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, stringBuilder1.ToString());
+                throw ex;
             }
             return stringBuilder1.ToString();
         }
@@ -1110,6 +1121,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, strSQL);
+                throw ex;
             }
             return dbTableList;
         }
@@ -1182,6 +1194,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, strSQL);
+                throw ex;
             }
             return columnInfoOracle;
         }
@@ -1259,6 +1272,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, strSQL);
+                throw ex;
             }
             return columnInfoMssql;
         }
@@ -1305,6 +1319,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, strSQL);
+                throw ex;
             }
             return tableSampleData;
         }
@@ -1350,6 +1365,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, strSQL);
+                throw ex;
             }
             return indexInfo;
         }
@@ -1425,6 +1441,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, strSQL);
+                throw ex;
             }
             return indexConInfo;
         }
@@ -1484,6 +1501,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, strSQL);
+                throw ex;
             }
             return dbObject;
         }
@@ -1523,6 +1541,7 @@ namespace KJHCore
                 this.ErrorMessage = message;
                 Debug.WriteLine(message);
                 clsLog.ErrLog(ex, strSQL);
+                throw ex;
             }
             return dbObjectScript;
         }

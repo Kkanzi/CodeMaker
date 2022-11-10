@@ -107,7 +107,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtCATE_DETAIL = new System.Windows.Forms.TextBox();
             this.tabLOG = new System.Windows.Forms.TabPage();
-            this.txtLOG = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.txtIP = new System.Windows.Forms.TextBox();
@@ -165,6 +164,7 @@
             this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CREATED = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LAST_DDL_TIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtLOG = new System.Windows.Forms.TextBox();
             this.materialTabControl1.SuspendLayout();
             this.tabTABLE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -1092,32 +1092,6 @@
             this.tabLOG.Text = "LOG";
             this.tabLOG.UseVisualStyleBackColor = true;
             // 
-            // txtLOG
-            // 
-            this.txtLOG.AnimateReadOnly = false;
-            this.txtLOG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtLOG.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtLOG.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtLOG.Depth = 0;
-            this.txtLOG.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLOG.HideSelection = true;
-            this.txtLOG.Location = new System.Drawing.Point(0, 0);
-            this.txtLOG.MaxLength = 32767;
-            this.txtLOG.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtLOG.Name = "txtLOG";
-            this.txtLOG.PasswordChar = '\0';
-            this.txtLOG.ReadOnly = true;
-            this.txtLOG.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtLOG.SelectedText = "";
-            this.txtLOG.SelectionLength = 0;
-            this.txtLOG.SelectionStart = 0;
-            this.txtLOG.ShortcutsEnabled = true;
-            this.txtLOG.Size = new System.Drawing.Size(1142, 637);
-            this.txtLOG.TabIndex = 0;
-            this.txtLOG.TabStop = false;
-            this.txtLOG.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtLOG.UseSystemPasswordChar = false;
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -1886,6 +1860,16 @@
             this.LAST_DDL_TIME.ReadOnly = true;
             this.LAST_DDL_TIME.Width = 150;
             // 
+            // txtLOG
+            // 
+            this.txtLOG.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLOG.Location = new System.Drawing.Point(0, 0);
+            this.txtLOG.Multiline = true;
+            this.txtLOG.Name = "txtLOG";
+            this.txtLOG.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtLOG.Size = new System.Drawing.Size(1142, 637);
+            this.txtLOG.TabIndex = 0;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -1960,6 +1944,7 @@
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.tabLOG.ResumeLayout(false);
+            this.tabLOG.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.grpDIC.ResumeLayout(false);
             this.grpDIC.PerformLayout();
@@ -2044,7 +2029,6 @@
         private System.Windows.Forms.TextBox txtDIR;
         private MaterialSkin.Controls.MaterialLabel materialLabel10;
         private System.Windows.Forms.Button btnDIR;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox2 txtLOG;
         private System.Windows.Forms.DataGridViewTextBoxColumn TABLE_NAME;
         private System.Windows.Forms.DataGridViewTextBoxColumn TABLE_COMMENT;
         private System.Windows.Forms.DataGridViewTextBoxColumn NUM_ROWS;
@@ -2110,6 +2094,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
         private System.Windows.Forms.DataGridViewTextBoxColumn CREATED;
         private System.Windows.Forms.DataGridViewTextBoxColumn LAST_DDL_TIME;
+        private System.Windows.Forms.TextBox txtLOG;
     }
 }
 

@@ -34,8 +34,9 @@ namespace CodeMaker
                 Primary.Blue500, Accent.LightBlue200,
                 TextShade.WHITE
             );
-
-            clsLog.filePath = Application.StartupPath;
+            string path = $@"{Application.StartupPath}{Path.DirectorySeparatorChar}Log{Path.DirectorySeparatorChar}";
+            
+            clsLog.filePath = path;
         }
         #region 이벤트
         private void frmMain_Load(object sender, EventArgs e)
@@ -448,9 +449,6 @@ namespace CodeMaker
                     {
                         txtMERGE_P.Text = gc.GetMergeSqlP(strTableName, gc.GetColumnInfoMSSQL(strTableName));
                     }
-
-
-
                 }
             }
             catch (Exception ex)
@@ -469,16 +467,23 @@ namespace CodeMaker
 
         private void gvCATE_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (gvCATE.Rows.Count > 0)
-            {
-                string ObjectName = gvCATE.Rows[e.RowIndex].Cells["OBJECT_NAME"].Value.ToString();
+            try
+            { 
+                if (gvCATE.Rows.Count > 0)
+                {
+                    string ObjectName = gvCATE.Rows[e.RowIndex].Cells["OBJECT_NAME"].Value.ToString();
                 
-                DataTable dtObj = gc.GetDBObjectScript(DBKind.MSSQL, string.Empty, ObjectName);
+                    DataTable dtObj = gc.GetDBObjectScript(DBKind.MSSQL, string.Empty, ObjectName);
 
-                if (dtObj.Rows.Count > 0)
-                    txtCATE_DETAIL.Text = dtObj.Rows[0]["TEXT"].ToString();
-                else
-                    txtCATE_DETAIL.Text = string.Empty;
+                    if (dtObj.Rows.Count > 0)
+                        txtCATE_DETAIL.Text = dtObj.Rows[0]["TEXT"].ToString();
+                    else
+                        txtCATE_DETAIL.Text = string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                PrintLog(ex);
             }
         }
 
@@ -497,47 +502,56 @@ namespace CodeMaker
 
             txtLOG.Text += sb.ToString();
 
-            clsLog.ErrLog(ex);
+            materialTabControl1.SelectTab("tabLOG");
         }
 
         private void TableSearch()
         {
-            if (gc == null)
+            try
             {
-                MaterialMessageBox.Show("먼저 DB Connect를 해주시기바랍니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                materialTabControl1.SelectTab("tabTABLE");
+
+                if (gc == null)
+                {
+                    MaterialMessageBox.Show("먼저 DB Connect를 해주시기바랍니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                DataTable dt = new DataTable();
+                dt = gc.GetDBTableList(DBKind.MSSQL, txtTB_NAME.Text, txtTB_DESC.Text);
+
+                if (dt.Columns.Contains("TABLE_CATALOG"))
+                    dt.Columns.Remove("TABLE_CATALOG");
+
+                //if (dt.Columns.Contains("TABLE_SCHEMA"))
+                //    dt.Columns.Remove("TABLE_SCHEMA");
+
+                if (dt.Columns.Contains("TABLE_TYPE"))
+                    dt.Columns.Remove("TABLE_TYPE");
+
+                gvTABLE.DataSource = dt;
+
+                if (dt.Rows.Count > 0)
+                {
+                    gvTABLE.Columns["TABLE_SCHEMA"].Visible = false;
+
+                    gvTABLE.Columns["TABLE_NAME"].FillWeight = 80;
+                    gvTABLE.Columns["TABLE_COMMENT"].FillWeight = 140;
+                    gvTABLE.Columns["NUM_ROWS"].FillWeight = 70;
+
+                    DataGridViewCellEventArgs a = new DataGridViewCellEventArgs(0, 0);
+                    gvTABLE_CellClick(gvTABLE, a);
+                }
+                else
+                {
+                    txtRDB_Name.Text = string.Empty;
+
+                    MaterialMessageBox.Show("DB에 등록된 테이블이 존재하지 않습니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-
-            DataTable dt = new DataTable();
-            dt = gc.GetDBTableList(DBKind.MSSQL, txtTB_NAME.Text, txtTB_DESC.Text);
-
-            if (dt.Columns.Contains("TABLE_CATALOG"))
-                dt.Columns.Remove("TABLE_CATALOG");
-
-            //if (dt.Columns.Contains("TABLE_SCHEMA"))
-            //    dt.Columns.Remove("TABLE_SCHEMA");
-
-            if (dt.Columns.Contains("TABLE_TYPE"))
-                dt.Columns.Remove("TABLE_TYPE");
-
-            gvTABLE.DataSource = dt;
-
-            if (dt.Rows.Count > 0)
+            catch (Exception ex)
             {
-                gvTABLE.Columns["TABLE_SCHEMA"].Visible = false;
-
-                gvTABLE.Columns["TABLE_NAME"].FillWeight = 80;
-                gvTABLE.Columns["TABLE_COMMENT"].FillWeight = 140;
-                gvTABLE.Columns["NUM_ROWS"].FillWeight = 70;
-
-                DataGridViewCellEventArgs a = new DataGridViewCellEventArgs(0, 0);
-                gvTABLE_CellClick(gvTABLE, a);
-            }
-            else
-            {
-                txtRDB_Name.Text = string.Empty;
-
-                MaterialMessageBox.Show("DB에 등록된 테이블이 존재하지 않습니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                PrintLog(ex);
             }
         }
 
