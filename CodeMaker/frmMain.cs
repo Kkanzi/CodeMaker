@@ -274,10 +274,10 @@ namespace CodeMaker
                     if (dt.Columns.Contains("DATA_LEN_STR_MAX"))
                         dt.Columns.Remove("DATA_LEN_STR_MAX");
 
+                    gvColumn.DataSource = dt;
+
                     if (dt.Rows.Count > 0)
                     {
-                        gvColumn.DataSource = dt;
-
                         gvColumn.Columns["TABLE_NAME"].Visible = false;
 
                         txtRDB_Name.Text = strTableName;
@@ -285,7 +285,6 @@ namespace CodeMaker
                     }
                     else
                     {
-                        gvColumn.DataSource = null;
                         txtRDB_Name.Text = string.Empty;
                         txtRDB_SCHEMA.Text = string.Empty;
                         MaterialMessageBox.Show("테이블에 등록된 컬럼이 존재하지 않습니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -294,18 +293,17 @@ namespace CodeMaker
 
                     #region SAMPLEDATA GRID
                     DataTable dtSamp = gc.GetTableSampleData(DBKind.MSSQL, strTableName, txtSample_Cnt.Text);
-                    
-                    if (dtSamp.Rows.Count > 0)
-                        gvSample.DataSource = dtSamp;
 
+                    gvSample.DataSource = dtSamp;
                     #endregion
 
                     #region INDEX MASTER GRID
                     DataTable dtIndexMaster = gc.GetIndexInfo(DBKind.MSSQL, strTableName);
 
+                    gvIndexMaster.DataSource = dtIndexMaster;
+
                     if (dtIndexMaster.Rows.Count > 0)
                     {
-                        gvIndexMaster.DataSource = dtIndexMaster;
                         gvIndexMaster.Columns["TABLE_NAME"].Visible = false;
 
                         DataGridViewCellEventArgs a = new DataGridViewCellEventArgs(0, 0);
@@ -360,6 +358,28 @@ namespace CodeMaker
                         gvColumn.Rows[e.RowIndex].Cells["COLUMN_COMMENTS"].Value = frm.OutComment;
                         //frm.OutComment
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                PrintLog(ex);
+            }
+        }
+
+        private void btnCATE_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable dt = gc.GetDBObject(DBKind.MSSQL, cboCATE.SelectedValue.ToString(), txtCATE_NAME.Text);
+
+                gvCATE.DataSource = dt;
+
+                if (dt.Rows.Count > 0)
+                {
+                    gvCATE.Columns["STATUS"].Visible = false;
+
+                    DataGridViewCellEventArgs a = new DataGridViewCellEventArgs(0, 0);
+                    gvCATE_CellClick(gvCATE, a);
                 }
             }
             catch (Exception ex)
@@ -447,6 +467,21 @@ namespace CodeMaker
             }
         }
 
+        private void gvCATE_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (gvCATE.Rows.Count > 0)
+            {
+                string ObjectName = gvCATE.Rows[e.RowIndex].Cells["OBJECT_NAME"].Value.ToString();
+                
+                DataTable dtObj = gc.GetDBObjectScript(DBKind.MSSQL, string.Empty, ObjectName);
+
+                if (dtObj.Rows.Count > 0)
+                    txtCATE_DETAIL.Text = dtObj.Rows[0]["TEXT"].ToString();
+                else
+                    txtCATE_DETAIL.Text = string.Empty;
+            }
+        }
+
         #endregion
 
 
@@ -485,10 +520,10 @@ namespace CodeMaker
             if (dt.Columns.Contains("TABLE_TYPE"))
                 dt.Columns.Remove("TABLE_TYPE");
 
+            gvTABLE.DataSource = dt;
+
             if (dt.Rows.Count > 0)
             {
-                gvTABLE.DataSource = dt;
-
                 gvTABLE.Columns["TABLE_SCHEMA"].Visible = false;
 
                 gvTABLE.Columns["TABLE_NAME"].FillWeight = 80;
@@ -500,8 +535,6 @@ namespace CodeMaker
             }
             else
             {
-                gvTABLE.DataSource = null;
-                gvColumn.DataSource = null;
                 txtRDB_Name.Text = string.Empty;
 
                 MaterialMessageBox.Show("DB에 등록된 테이블이 존재하지 않습니다.", "Connect", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -557,6 +590,8 @@ namespace CodeMaker
             AppConfigHelper.SetAppConfig("SAM_ROW_CNT", txtSample_Cnt.Text);
             AppConfigHelper.SetAppConfig("SAVEFILE_DIR", txtDIR.Text);
         }
+
+
 
         #endregion
 

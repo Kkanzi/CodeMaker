@@ -99,9 +99,6 @@
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.gvCATE = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnCATE = new MaterialSkin.Controls.MaterialButton();
             this.cboCATE = new System.Windows.Forms.ComboBox();
@@ -164,6 +161,10 @@
             this.materialCheckbox12 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox13 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox14 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.OBJECT_NAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CREATED = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LAST_DDL_TIME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialTabControl1.SuspendLayout();
             this.tabTABLE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -986,13 +987,13 @@
             // gvCATE
             // 
             this.gvCATE.AllowUserToAddRows = false;
-            this.gvCATE.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.gvCATE.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.gvCATE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvCATE.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
+            this.OBJECT_NAME,
+            this.STATUS,
+            this.CREATED,
+            this.LAST_DDL_TIME});
             this.gvCATE.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gvCATE.Location = new System.Drawing.Point(3, 55);
             this.gvCATE.Name = "gvCATE";
@@ -1001,30 +1002,7 @@
             this.gvCATE.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvCATE.Size = new System.Drawing.Size(523, 573);
             this.gvCATE.TabIndex = 2;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "TABLE_NAME";
-            this.dataGridViewTextBoxColumn1.FillWeight = 80F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "테이블 명";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "TABLE_COMMENT";
-            this.dataGridViewTextBoxColumn2.FillWeight = 140F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "주석";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "NUM_ROWS";
-            this.dataGridViewTextBoxColumn3.FillWeight = 70F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "행수";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.gvCATE.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCATE_CellClick);
             // 
             // panel7
             // 
@@ -1057,6 +1035,7 @@
             this.btnCATE.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Text;
             this.btnCATE.UseAccentColor = false;
             this.btnCATE.UseVisualStyleBackColor = true;
+            this.btnCATE.Click += new System.EventHandler(this.btnCATE_Click);
             // 
             // cboCATE
             // 
@@ -1871,6 +1850,42 @@
             this.materialCheckbox14.Text = "materialCheckbox14";
             this.materialCheckbox14.UseVisualStyleBackColor = true;
             // 
+            // OBJECT_NAME
+            // 
+            this.OBJECT_NAME.DataPropertyName = "OBJECT_NAME";
+            this.OBJECT_NAME.FillWeight = 80F;
+            this.OBJECT_NAME.HeaderText = "오브젝트";
+            this.OBJECT_NAME.Name = "OBJECT_NAME";
+            this.OBJECT_NAME.ReadOnly = true;
+            this.OBJECT_NAME.Width = 150;
+            // 
+            // STATUS
+            // 
+            this.STATUS.DataPropertyName = "STATUS";
+            this.STATUS.HeaderText = "상태";
+            this.STATUS.Name = "STATUS";
+            this.STATUS.ReadOnly = true;
+            this.STATUS.Visible = false;
+            this.STATUS.Width = 124;
+            // 
+            // CREATED
+            // 
+            this.CREATED.DataPropertyName = "CREATED";
+            this.CREATED.FillWeight = 140F;
+            this.CREATED.HeaderText = "생성일자";
+            this.CREATED.Name = "CREATED";
+            this.CREATED.ReadOnly = true;
+            this.CREATED.Width = 150;
+            // 
+            // LAST_DDL_TIME
+            // 
+            this.LAST_DDL_TIME.DataPropertyName = "LAST_DDL_TIME";
+            this.LAST_DDL_TIME.FillWeight = 70F;
+            this.LAST_DDL_TIME.HeaderText = "수정일자";
+            this.LAST_DDL_TIME.Name = "LAST_DDL_TIME";
+            this.LAST_DDL_TIME.ReadOnly = true;
+            this.LAST_DDL_TIME.Width = 150;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -2084,9 +2099,6 @@
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView gvCATE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox txtCATE_NAME;
         private System.Windows.Forms.Label label3;
@@ -2094,6 +2106,10 @@
         private System.Windows.Forms.TextBox txtCATE_DETAIL;
         private System.Windows.Forms.ComboBox cboCATE;
         private MaterialSkin.Controls.MaterialButton btnCATE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OBJECT_NAME;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CREATED;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LAST_DDL_TIME;
     }
 }
 
